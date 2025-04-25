@@ -176,6 +176,53 @@ display: none;
 font-size: 30px;
 line-height: 1.5;
 }
+.about-cont-part {
+    text-align: left;
+    margin-bottom: 25px;
+}
+.banner-left-side h1{
+    font-size: 34px;
+    line-height: 44px;
+}
+.about-cont-part h2{
+    text-align: left;
+    font-size: 28px;
+}
+.happy-client:after {
+    max-width: 283px;
+    height: 280px;
+    right: 0px;
+    top: -81px;
+}
+.happy-client-card h2 {
+    font-size: 45px;
+    line-height: 60px;
+}
+#cm-banner {
+    height: auto;
+    padding: 117px 0px;
+}
+.banner-left-side p {
+    font-size: 12px;
+    margin-top: 0px;
+}
+.Blog-Items-Content h4 {
+    font-size: 16px;
+    line-height: 22px;
+}
+#contact-form-section {
+    padding: 40px 0px;
+}
+.contact-form{
+        padding: 65px 0px 0px;
+    background: none;
+}
+.contact-text-part h2 {
+    font-size: 26px;
+}
+.happy-client-card span{
+    font-size: 45px;
+}
 }	
 
  @media screen and (min-width: 820px) and (max-width: 1200px) {
@@ -387,6 +434,180 @@ min-height: 498px;
     padding-top: 16px;
     flex-direction: column;
     gap: 20px;
+}
+.banner-left-side h1 {
+font-size: 26px;
+    text-align: left;
+    line-height: 34px;
+}
+.about-cont-part h2 {
+    font-size: 22px;
+    line-height: 34px;
+    text-align: left;
+}
+.about-cont-part p {
+    font-size: 16px;
+    text-align: left;
+}
+.about-cont-part {
+    margin-bottom: 20px;
+}
+.about-vision-part h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.about-vision-part p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.happy-client:after {
+    max-width: 175px;
+    height: 326px;
+    right: 0px;
+    top: -38px;
+    z-index: 1;
+}
+.happy-client-outer {
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+.happy-client-card h2 {
+    font-size: 40px;
+    line-height: 60px;
+}
+.br-right:after {
+display: none;
+}
+.expert-heading h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.expert-heading p {
+    font-size: 14px;
+}
+.expert-heading {
+    margin-bottom: 30px;
+}
+#cm-banner {
+height: auto;
+    padding: 110px 0px 20px;
+}
+.banner-left-side p{
+    margin-top: 0px;
+}
+.pagination ul li:first-child a, .pagination ul li:last-child a {
+    height: 35px;
+    padding: 0px 15px;
+}
+.pagination ul li a {
+    border-radius: 50%;
+    width: 33px;
+    height: 33px;
+}
+.banner-right-side .breadcrumb {
+    justify-content: start;
+    align-items: center;
+    padding-left: 0px;
+}
+.policy-content-main h2 {
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 10px;
+}
+.policy-content-main h3 {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+.policy-content-main ul{
+    padding-left: 18px;
+    margin-bottom: 20px;
+}
+.policy-content-main ul li{
+    list-style-position: outside;
+}
+.policy-content-main h4 {
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+.policy-content-main ol{
+    padding-left: 18px;
+    margin-bottom: 20px;
+}
+.policy-content-main ol li{
+    list-style-position: outside;
+}
+#contact-form-section {
+    padding: 40px 0px;
+}
+.contact-text-part {
+    margin-top: 0px;
+    max-width: 100%;
+    margin-bottom: 22px;
+}
+.contact-form {
+    padding: 40px 0px;
+    width: 100%;
+    max-width: 100%;
+    background: none;
+}
+.contact-form .form-group {
+    margin-bottom: 36px;
+}
+.contact-text-part h2 {
+    font-size: 26px;
+}
+.contact-text-part p {
+    font-size: 14px;
+}
+.map iframe {
+    height: auto;
+    aspect-ratio: 1/1;
+}
+.service-content-main h2 {
+    font-size: 26px;
+    line-height: 38px;
+    margin-bottom: 10px;
+}
+.service-content-main {
+    padding-bottom: 30px;
+}
+.service-content-list {
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+.service-list-text h3 {
+    font-size: 18px;
+}
+.service-content-list h4 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+.Blog-Items .Blog-Items-image img {
+    width: 100%;
+    max-width: 100%;
+}
+.happy-client-card span{
+    font-size: 40px;
+}
+ol.breadcrumb li {
+    display: contents;
+}
+ol.breadcrumb{
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.banner-right-side li.breadcrumb-item a{
+    font-size: 12px;
+}
+.banner-right-side li.breadcrumb-item.active{
+    font-size: 12px;
+}
+.breadcrumb-item + .breadcrumb-item::before{
+    padding: 0px 5px;
 }
 }
 

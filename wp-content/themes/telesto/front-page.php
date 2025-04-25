@@ -110,7 +110,7 @@ $video_url = get_field('video_second');
             <div class="container">
                 <div class="row logo_bdr">
                     <div class="col-lg-2 col-md-12 col-12 d-flex align-items-center">
-                        //
+                        
 
 
 
@@ -148,7 +148,6 @@ $video_url = get_field('video_second');
 </div>
 
 
-//
 
 
                         </div>
@@ -714,7 +713,7 @@ $hand_image_alt = !empty($hand_image['alt'])
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="heading-pnel mb-5 wow fadeInUp">
+                        <div class="heading-pnel mb-5 wow ">
                             <h2><?php the_field('blog_heading_'); ?></h2>
                         </div>
                     </div>
@@ -737,7 +736,7 @@ $hand_image_alt = !empty($hand_image['alt'])
             $featured_image = $featured_image ? $featured_image : get_template_directory_uri() . '/assets/images/blog/placeholder.png';
     ?>
             <div class="item">
-                <div class="Blog-Items wow fadeInUp">
+                <div class="Blog-Items wow ">
                     <div class="Blog-Items-image">
                         <img src="<?php echo esc_url($featured_image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="img-fluid" />
                     </div>

@@ -82,7 +82,6 @@ function enqueue_custom_scripts() {
 }
 
 
-
 if( function_exists('acf_add_options_page') ) {
 
     acf_add_options_page();
@@ -151,24 +150,6 @@ function create_industries_post_type() {
     register_taxonomy_for_object_type( 'category', 'industries' );
 }
 add_action( 'init', 'create_industries_post_type' );
-
-
-remove_filter('the_content', 'wpautop');
-remove_filter('the_excerpt', 'wpautop');
-
-
-
-function remove_wpautop_for_cf7($content) {
-    if (has_shortcode($content, 'contact-form-7')) {
-        remove_filter('the_content', 'wpautop');
-        remove_filter('the_excerpt', 'wpautop');
-    }
-    return $content;
-}
-add_filter('the_content', 'remove_wpautop_for_cf7', 1);
-
-
-
 
 
 

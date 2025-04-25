@@ -115,8 +115,15 @@ if ($link):
 
       <?php wp_footer(); ?>
 
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
 </html>
 
+<script>
+  new WOW().init();
+</script>
 
 
 

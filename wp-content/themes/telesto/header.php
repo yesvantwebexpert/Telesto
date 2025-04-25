@@ -4,13 +4,16 @@
         <title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/x-icon" href="<?php bloginfo('template_url'); ?>/assets/images/favicon.png" />
+
+        
         <meta charset="utf-8" />
         <meta name="keywords" content="" />
         
+
         <?php wp_head(); ?>
     </head>
     <div class="cursor"></div>
-    <body  translate="no" <?php body_class(); ?> >
+    <body <?php body_class(); ?> >
         <?php wp_body_open(); ?>
         <!-- header -->
         <header class="header js-header">
@@ -46,27 +49,7 @@
                     
                      ));
                   ?>
-                            <!-- <ul class="navbar-nav ml-lg-auto">
-                                <li>
-                                    <a href="index.html" class="active">Home</a>
-                                </li>
-                                <li>
-                                    <a href="#">About us</a>
-                                </li>
-                                <li>
-                                    <a href="#">Services</a>
-                                </li>
-                                <li>
-                                    <a href="#">Case Studies</a>
-                                </li>
-                                <li>
-                                    <a href="#">Blogs</a>
-                                </li>
-                                <li>
-                                    <a href="#">Contact Us</a>
-                                </li>
-                            </ul> -->
-
+                            
 
                             <?php 
                      $button = get_field('top_right_button_link', 'option'); 
