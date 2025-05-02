@@ -46,7 +46,7 @@ if ($link):
                                     <h3><?php echo get_field('important_links', 'options'); ?></h3>
                                 </div>
                                 <div class="FooterLinks">
-                                    <ul>
+                                    
                                        
 
                                     <?php 
@@ -58,6 +58,7 @@ if ($link):
                                 'link_before'    => '<i class="fa fa-angle-right"></i> ', 
                             ));
                         ?>
+
                                 </div>
                             </div>
                         </div>
@@ -110,6 +111,11 @@ if ($link):
         </footer>
    <!--  </div> 
  </main>  -->
+
+
+
+
+
  
       </body>
 
@@ -119,11 +125,18 @@ if ($link):
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
+      
+
+
+
+     
+
 </html>
 
 <script>
   new WOW().init();
 </script>
+
 
 
 

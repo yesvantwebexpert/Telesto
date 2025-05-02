@@ -2,6 +2,8 @@
 <html lang="zxx">
     <head>
         <title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
+
+
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/x-icon" href="<?php bloginfo('template_url'); ?>/assets/images/favicon.png" />
 

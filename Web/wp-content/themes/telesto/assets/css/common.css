@@ -5,7 +5,6 @@ background: #000;{
    font-size: 100%;
    overflow-x: hidden;
    font-family: "Poppins", sans-serif;
-
 }
 ::-webkit-scrollbar {
     width: 6px;
@@ -1927,7 +1926,11 @@ footer.MainFoorter {
 .learlink img { 
     display: inline !important;
 }
-
+.success_image_main{
+    position: sticky !important;
+    top: 0px;
+    z-index: 99;
+}
 .success_image_main {
     min-height: 538px;
     background-size: cover;
@@ -2115,8 +2118,10 @@ footer.MainFoorter {
 .happy-client-card p{
     font-weight: 400;
     font-size: 20px;
+    display: flex;
     line-height: 30px;
     color: #F5F7FA;
+    justify-content: center;
 }
 #expert-section{
     margin-top: 20px;
@@ -2620,4 +2625,28 @@ a.social-icons:hover{
 }
 .expert-card:hover:after{
     background-color: #00FF99;
+}
+
+
+.Newsletters .NewslettersInput input {
+    width: 90%;
+    display: inline-block;
+}
+.NewslettersInput form.wpcf7-form.init {
+    display: flex;
+    align-items: center;
+}
+.Newsletters .NewslettersInput .nts-btn {
+    width: 80px;
+}
+
+
+
+
+.FooterBottom p {
+    text-align: center !important;
+    display: block;
+}
+.success-detial ul li p{
+    max-width: 450px;
 }

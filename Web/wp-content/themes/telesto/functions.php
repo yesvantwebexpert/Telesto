@@ -17,69 +17,57 @@ add_action('wp_enqueue_scripts', 'custom_theme_enqueue_styles');
 
 
 
-// function custom_theme_enqueue_scripts() {
-//     // Enqueue the built-in jQuery if needed (WordPress already includes jQuery).
-//     wp_enqueue_script('jquery');
-
-//     // Enqueue a custom jQuery script (if needed).
-//     wp_enqueue_script('jquery-script', get_template_directory_uri() . '/assets/js/jquery-3.6.0.min.js', array(), '3.6.0', true);
-
-//     // Enqueue other scripts with jQuery as a dependency.
-//     wp_enqueue_script('carousal-script', get_template_directory_uri() . '/assets/js/owl.carousel.js', array('jquery'), null, true);
-//     wp_enqueue_script('bootstrap-script', get_template_directory_uri() . '/assets/js/bootstrap.js', array('jquery'), null, true);
-//     wp_enqueue_script('wow-script', get_template_directory_uri() . '/assets/js/wow.js', array('jquery'), null, true);
-//     wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), null, true);
-// }
-
-// // add_action('wp_enqueue_scripts', 'custom_theme_enqueue_scripts');
-
-add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 
 function enqueue_custom_scripts() {
+    
+    // Deregister default WordPress jQuery and use custom
+    wp_deregister_script('jquery');
     wp_enqueue_script(
-        'custom-jquery', 
+        'jquery', 
         get_template_directory_uri() . '/assets/js/jquery-3.6.0.min.js', 
         array(), 
         '3.6.0', 
-        true // Load in footer
+        true
     );
 
+    // Owl Carousel
     wp_enqueue_script(
-        'slider', 
+        'owl-carousel', 
         get_template_directory_uri() . '/assets/js/owl.carousel.js', 
-        array(), 
-        '3.6.0', 
-        true // Load in footer
+        array('jquery'), 
+        null, 
+        true
     );
 
+    // Bootstrap
     wp_enqueue_script(
-        'slider1', 
+        'bootstrap', 
         get_template_directory_uri() . '/assets/js/bootstrap.js', 
-        array(), 
-        '3.6.0', 
-        true // Load in footer
+        array('jquery'), 
+        null, 
+        true
     );
 
+    // WOW.js
     wp_enqueue_script(
-        'slider2', 
+        'wow', 
         get_template_directory_uri() . '/assets/js/wow.js', 
-        array(), 
-        '3.6.0', 
-        true // Load in footer
+        array('jquery'), 
+        null, 
+        true
     );
 
-
+    // Main script
     wp_enqueue_script(
-        'slider3', 
+        'main-script', 
         get_template_directory_uri() . '/assets/js/main.js', 
-        array(), 
-        '3.6.0', 
-        true // Load in footer
+        array('jquery'), 
+        null, 
+        true
     );
-
-
-
 }
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
 
 
 if( function_exists('acf_add_options_page') ) {
@@ -150,6 +138,104 @@ function create_industries_post_type() {
     register_taxonomy_for_object_type( 'category', 'industries' );
 }
 add_action( 'init', 'create_industries_post_type' );
+
+
+
+
+function custom_breadcrumbs() {
+    echo '<ol class="breadcrumb">';
+    echo '<li class="breadcrumb-item"><a href="' . home_url() . '">Home</a></li>';
+
+    if (is_single() || is_page()) {
+        echo '<li class="breadcrumb-item active" aria-current="page">' . get_the_title() . '</li>';
+    }
+
+    echo '</ol>';
+
+}
+
+
+
+// Register Custom Post Type: Case
+function create_cases_post_type() {
+    $labels = array(
+        'name'               => 'Cases',
+        'singular_name'      => 'Case',
+        'menu_name'          => 'Cases',
+        'name_admin_bar'     => 'Case',
+        'add_new'            => 'Add New',
+        'add_new_item'       => 'Add New Case',
+        'new_item'           => 'New Case',
+        'edit_item'          => 'Edit Case',
+        'view_item'          => 'View Case',
+        'all_items'          => 'All Cases',
+        'search_items'       => 'Search Cases',
+        'not_found'          => 'No industries found.',
+        'not_found_in_trash' => 'No industries found in Trash.'
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => true,
+        'menu_icon'          => 'dashicons-portfolio', 
+        'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes' ),
+        'hierarchical'       => true,
+        'show_in_rest'       => true,
+        'rewrite'            => array('slug' => 'references'),
+        'query_var'          => true,
+        'taxonomies'         => array( 'category' ) // ✅ fixed comma and added category taxonomy
+    );
+
+    register_post_type( 'cases', $args );
+
+    // Make sure default categories work with the custom post type
+    register_taxonomy_for_object_type( 'category', 'cases' );
+}
+add_action( 'init', 'create_cases_post_type' );
+
+
+// Enable support for post thumbnails globally
+add_theme_support('post-thumbnails');
+
+// Register custom post type 'service'
+function register_services_cpt() {
+    register_post_type('service', array(
+        'labels' => array(
+            'name' => 'Services',
+            'singular_name' => 'Service',
+            'add_new' => 'Add New',
+            'add_new_item' => 'Add New Service',
+            'edit_item' => 'Edit Service',
+            'new_item' => 'New Service',
+            'view_item' => 'View Service',
+            'all_items' => 'All Services',
+            'search_items' => 'Search Services',
+            'not_found' => 'No services found',
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'services'),
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes'),
+        'menu_icon' => 'dashicons-hammer', // optional icon
+    ));
+}
+add_action('init', 'register_services_cpt');
+
+
+
+
+
+add_filter('wpcf7_autop_or_not', '__return_false');
+
+
+function enqueue_gsap_script() {
+    wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js', array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_gsap_script');
+
+
+
 
 
 
