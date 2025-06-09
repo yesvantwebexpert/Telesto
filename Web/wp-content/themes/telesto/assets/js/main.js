@@ -11,13 +11,13 @@ $(document).ready(function () {
   $(window).scroll(function () {
     var scroll = $(window).scrollTop();
 
-    if (scroll >= 300) {
+    if (scroll >= 1) {
       $("header").addClass("darkHeader");
     } else {
       $("header").removeClass("darkHeader");
     }
 
-    if (scroll >= 500) {
+    if (scroll >= 1) {
       $("header").addClass("darkHeader-2");
     } else {
       $("header").removeClass("darkHeader-2");
@@ -55,8 +55,50 @@ $('.Count').each(function () {
 
   // Owl Carousel: Real Slider
   $('#Real-Slider').owlCarousel({
-    margin: 0,
+    margin: 30,
     items: 1,
+    dots: false,
+    loop: true,
+    nav: true,
+    autoplay: true,
+    autoplayTimeout: 4500, 
+    smartSpeed: 1500,
+    autoHeight: true,
+    responsive: {
+      0: { items: 1.2 },
+      768: { items: 1 },
+      1000: { items: 2.5 }
+    }
+  });
+
+   // Owl Carousel: Industry Slider
+  $('#industry-silder').owlCarousel({
+    margin: 35,
+    items: 3,
+    dots: false,
+    loop: true,
+    nav: true,
+    autoplay: true,
+    autoplayTimeout: 4500, 
+    smartSpeed: 1500,
+    autoHeight: true,
+    responsive: {
+      0: { 
+        items: 1 
+      },
+      768: { 
+      items: 3
+       },
+      1000: {
+       items: 3 
+     }
+    }
+  });
+
+// Owl Carousel: Service Slider
+  $('#service-slider').owlCarousel({
+    margin: 16,
+    items: 3,
     dots: false,
     loop: true,
     nav: false,
@@ -65,9 +107,15 @@ $('.Count').each(function () {
     smartSpeed: 1500,
     autoHeight: true,
     responsive: {
-      0: { items: 1.2 },
-      768: { items: 2 },
-      1000: { items: 2.5 }
+      0: { 
+        items: 1 
+      },
+      768: { 
+      items: 3
+       },
+      1000: {
+       items: 4 
+     }
     }
   });
 

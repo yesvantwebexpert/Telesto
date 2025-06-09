@@ -1,31 +1,26 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying all pages
+ *
+ * This is the template that displays all pages by default.
+ */
+
+get_header(); ?>
 
 <main id="primary" class="site-main">
-    <div class="container">
-        <?php
-        while ( have_posts() ) :
-            the_post();
-            ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <header class="entry-header">
-                    <h1 class="entry-title"><?php the_title(); ?></h1>
-                </header>
+    <?php
+    while ( have_posts() ) :
+        the_post();
+        get_template_part( 'template-parts/content', 'page' );
+        // If comments are open or there is at least one comment, load the comment template.
+        if ( comments_open() || get_comments_number() ) :
+            comments_template();
+        endif;
+    endwhile; // End of the loop.
+    ?>
+</main><!-- #primary -->
 
-                <div class="entry-content">
-                    <?php
-                    the_content();
-
-                    // If the page has multiple pages (using <!--nextpage-->), show pagination
-                    wp_link_pages(array(
-                        'before' => '<div class="page-links">' . __('Pages:', 'your-textdomain'),
-                        'after'  => '</div>',
-                    ));
-                    ?>
-                </div>
-            </article>
-
-        <?php endwhile; ?>
-    </div>
-</main>
-
-<?php get_footer(); ?>
+<?php
+get_sidebar();
+get_footer();
+?>

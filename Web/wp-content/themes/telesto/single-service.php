@@ -2,222 +2,419 @@
 
  get_header(); ?>
 
+<!-- Comman banner section start -->
 
+<?php
+$image = get_field('banner_image');
+$image_url = $image['url'];
+?>
 
- <!-- Comman banner section start -->
-    <section id="cm-banner" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/service-details1.jpg);">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-sm-12 col-md-6 col-lg-7">
-                    <div class="banner-left-side wow fadeIn">
-                        <h1>Software Development Services</h1>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-5">
-                    <div class="banner-right-side wow fadeIn">
-                        <nav aria-label="breadcrumb">
-                          <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="services.html">Service</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Software Development Services</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+<section id="cm-banner" style="background-image: url('<?php echo esc_url($image_url); ?>');">
+  
+ <div class="container">
+    <div class="row align-items-center">
+       <div class="col-sm-12 col-md-7 col-lg-8">
+          <div class="banner-left-side wow fadeIn">
+             <h1><?php the_title(); ?></h1>
+          </div>
+       </div>
+       <div class="col-sm-12 col-md-5 col-lg-4">
+         <div class="banner-right-side wow fadeIn">
+            <nav aria-label="breadcrumb">
+                              <?php custom_breadcrumbs(); ?>
+
+                            </nav>
+         </div>
+      </div>
+   </div>
+</div>
 </section>
 <!-- Comman banner section end -->
-<!-- Service Detail content section start -->
-<section id="service-detail-content" class="space">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-sm-12 col-md-12 col-lg-10">
-                <div class="service-content-main wow fadeInUp">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/software-development-img.png" class="img-fluid" alt="Software Development Image">
+<!-- Service Tab section start -->
+<section id="service-tab" class="service-tab">
+ <div class="container">
+    <div class="ser-tab">
+       <a href="#description" class="tab-links active"><?php the_field('description'); ?></a>
+       <a href="#industry-applications" class="tab-links"><?php the_field('industry_heading'); ?></a>
+       <a href="#choose-telesto" class="tab-links"><?php the_field('why_choose_telesto'); ?></a>
+       <a href="#ecosystem" class="tab-links"><?php the_field('our_process'); ?></a>
+       <a href="#faq" class="tab-links"><?php the_field('tab_on_aksed_frequently'); ?></a>
+    </div>
+ </div>
+</section>
+<section class="service-detail space" id="description">
+ <div class="container">
+    <div class="row">
+       <div class="col-md-6 col-lg-6 col-12">
+          <div class="service-detial-img">
+  <?php
+  $image = get_field('ai_seond_image');
+  if (!empty($image)) :
+  ?>
+    <img src="<?php echo esc_url($image['url']); ?>" class="img-fluid" alt="<?php echo esc_attr($image['alt']); ?>">
+  <?php endif; ?>
+</div>
 
-                    <div class="service-detial-span">
-                        <span>Software Development</span>
-                    </div>
-                    <h2>Scalable, high-performance software tailored to your business.</h2>
-                    <p>We develop
-                        customized software solutions across industries, addressing specific business
-                    challenges and delivering measurable results.</p>
+       </div>
+       <div class="col-md-6 col-lg-6 col-12">
+         <div class="service-detial-content">
+            <div class="service-detial-span">
+               <span><?php the_field('data'); ?></span>
+            </div>
+            <h2><?php the_field('cost_heading'); ?></h2>
+            <p><?php the_field('cost_subheading'); ?></p>
+            <h5><?php the_field('keycapablities_heading'); ?></h5>
+            <?php if( have_rows('key_capabilities') ): ?>
+    <ul>
+        <?php while( have_rows('key_capabilities') ): the_row(); 
+            $heading = get_sub_field('key_heading');
+            $subheading = get_sub_field('key_subheading');
+        ?>
+            <li>
+                <?php echo esc_html($heading); ?>
+                <?php if( $subheading ): ?>
+                    <p><?php echo esc_html($subheading); ?></p>
+                <?php endif; ?>
+            </li>
+        <?php endwhile; ?>
+    </ul>
+<?php endif; ?>
+
+          <?php
+$further_link = get_field('further');
+if( $further_link ):
+    $link_url = $further_link['url'];
+    $link_title = $further_link['title'];
+    $link_target = $further_link['target'] ? $further_link['target'] : '_self';
+?>
+<div class="service-detial-button">
+    <a class="blue-btn wow fadeInUp" style="animation-delay: 0.4s;" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+        <?php echo esc_html( $link_title ); ?>
+        <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.7501 1.63619C11.7501 1.22198 11.4143 0.886194 11.0001 0.886194L4.25012 0.886194C3.83591 0.886194 3.50012 1.22198 3.50012 1.63619C3.50012 2.05041 3.83591 2.38619 4.25012 2.38619H10.2501V8.38619C10.2501 8.80041 10.5859 9.13619 11.0001 9.13619C11.4143 9.13619 11.7501 8.80041 11.7501 8.38619L11.7501 1.63619ZM1.46099 12.236L11.5305 2.16652L10.4698 1.10586L0.400334 11.1753L1.46099 12.236Z" fill="white"/>
+        </svg>
+    </a>
+</div>
+<?php endif; ?>
+
+        </div>
+     </div>
+  </div>
+</div>
+</section>
+<!-- Industry applications sections start -->
+<section id="industry-applications" class="industry-applications-section">
+ <div class="container">
+    <div class="row">
+       <div class="col-lg-12 col-md-12 col-12">
+          <div class="industry-applications-heading">
+             <h2><?php the_field('industry_application_heading'); ?></h2>
+          </div>
+       </div>
+    </div>
+<div class="row">
+   <div class="col-lg-12 col-md-12 col-12">
+      <div class="owl-carousel" id="industry-silder">
+         <?php
+         $terms = get_terms(array(
+            'taxonomy' => 'case_category',
+            'hide_empty' => false,
+         ));
+
+         if (!empty($terms) && !is_wp_error($terms)) :
+            foreach ($terms as $term) :
+             
+               $description = get_field('case_description', 'case_category_' . $term->term_id);
+         ?>
+               <div class="item">
+                  <div class="industry-applications-card">
+                     <h4><?php echo esc_html($term->name); ?></h4>
+                     <?php if ($description) : ?>
+                        <div class="industry-applications-description">
+                           <?php echo wp_kses_post($description); ?>
+                        </div>
+                     <?php endif; ?>
+                     <div class="industry-applications-button">
+                        <a class="blue-btn wow fadeInUp" style="animation-delay: 0.4s;" href="<?php echo esc_url(get_term_link($term)); ?>">
+                           Case studies
+                           <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M11.7501 1.63619C11.7501 1.22198 11.4143 0.886194 11.0001 0.886194L4.25012 0.886194C3.83591 0.886194 3.50012 1.22198 3.50012 1.63619C3.50012 2.05041 3.83591 2.38619 4.25012 2.38619H10.2501V8.38619C10.2501 8.80041 10.5859 9.13619 11.0001 9.13619C11.4143 9.13619 11.7501 8.80041 11.7501 8.38619L11.7501 1.63619ZM1.46099 12.236L11.5305 2.16652L10.4698 1.10586L0.400334 11.1753L1.46099 12.236Z" fill="white"/>
+                           </svg>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+         <?php
+            endforeach;
+         endif;
+         ?>
+      </div>
+   </div>
+</div>
+
+
+
+</div>
+</section>
+<!-- Industry applications sections end -->
+
+<!-- Why choose section start -->
+<section id="choose-telesto">
+  <?php
+  $hand_image = get_field('hand_image');
+  if( !empty($hand_image) ): ?>
+    <div class="robot-hand">
+        <img src="<?php echo esc_url($hand_image['url']); ?>" class="img-fluid" alt="<?php echo esc_attr($hand_image['alt']); ?>">
+    </div>
+  <?php endif; ?>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-5 col-12">
+        <div class="choose-telesto-process">
+          <h2><?php the_field('why_choose_heading'); ?> <span><?php the_field('telesto_heading'); ?></span><br><?php the_field('data_heading'); ?></h2>
+          <p><?php the_field('combining_heading'); ?></p>
+          <?php
+          $link = get_field('contact_link');
+          if( $link ):
+              $link_url = $link['url'];
+              $link_title = $link['title'];
+              $link_target = $link['target'] ? $link['target'] : '_self';
+              ?>
+              <a class="blue-btn wow fadeInUp" style="animation-delay: 0.4s;" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
+                  <?php echo esc_html($link_title); ?>
+                  <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11.7501 1.63619C11.7501 1.22198 11.4143 0.886194 11.0001 0.886194L4.25012 0.886194C3.83591 0.886194 3.50012 1.22198 3.50012 1.63619C3.50012 2.05041 3.83591 2.38619 4.25012 2.38619H10.2501V8.38619C10.2501 8.80041 10.5859 9.13619 11.0001 9.13619C11.4143 9.13619 11.7501 8.80041 11.7501 8.38619L11.7501 1.63619ZM1.46099 12.236L11.5305 2.16652L10.4698 1.10586L0.400334 11.1753L1.46099 12.236Z" fill="white"/>
+                  </svg>
+              </a>
+          <?php endif; ?>
+        </div>
+      </div>
+
+      <?php if( have_rows('industries_feature') ): ?>
+      <div class="col-lg-7 col-md-7 col-12">
+        <div class="choose-telesto-list-wrapper">
+          <?php while( have_rows('industries_feature') ): the_row(); 
+              $heading = get_sub_field('all_industry_heading');
+              $image = get_sub_field('all_industries_image');
+              $subheading = get_sub_field('all_industires_subheading');
+          ?>
+            <div class="choose-telesto-list">
+              <?php if( !empty($image) ): ?>
+                <div class="choose-telesto-list-icon">
+                  <img src="<?php echo esc_url($image['url']); ?>" class="img-fluid" alt="<?php echo esc_attr($image['alt']); ?>">
                 </div>
-                <div class="service-content-list wow fadeInUp">
-                    <div class="service-list">
-                        <div class="service-list-icon">
-                            <span></span>
-                        </div>
-                        <div class="service-list-text">
-                            <h3>Custom Software Development</h3>
-                            <p>Tailored solutions designed to optimize
-                                operations and drive business growth.</p>
-                        </div>
-                    </div>
-                    <div class="service-list">
-                        <div class="service-list-icon">
-                            <span></span>
-                        </div>
-                        <div class="service-list-text">
-                            <h3>SaaS Product Development </h3>
-                            <p>Cloud-based platforms that ensure scalability,
-accessibility, and seamless performance.</p>
-                        </div>
-                    </div>
-                    <div class="service-list">
-                        <div class="service-list-icon">
-                            <span></span>
-                        </div>
-                        <div class="service-list-text">
-                            <h3>CAD Software Development</h3>
-                            <p>Precision-driven solutions for design,
- engineering, and manufacturing industries.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-content-list">
-                    <h4>Flow Chart</h4>
-                <div class="BoxSteps row">
-                    <div class="BoxStepsItems col-md-4"><span></span></div>
-                    <div class="BoxStepsItems col-md-4"><span></span></div>
-                    <div class="BoxStepsItems col-md-4"><span></span></div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="ValuesItems wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                            <h5>Planning and sketching</h5>
-                            <p>Combining Telesto’s strong foothold in the US and Canada with Instandart’s deep market knowledge in the UK, we provide AI solutions tailored to regional business needs while maintaining a global perspective
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="ValuesItems wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                            <h5>Flowchart and wireframe</h5>
-                            <p>From AI-powered automation to predictive analytics and conversational AI, we offer a comprehensive suite of solutions designed to streamline operations, improve efficiency, and enhance customer experiences.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="ValuesItems wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                            <h5>User experience Testing</h5>
-                            <p>We specialize in manufacturing, finance, telecom, and healthcare—leveraging AI to solve critical challenges like fraud detection, customer personalization, and intelligent automation.</p>
-                        </div>
-                    </div>
+              <?php endif; ?>
+              <div class="choose-telesto-list-inner">
+                <?php if( !empty($heading) ): ?>
+                  <h3><?php echo esc_html($heading); ?></h3>
+                <?php endif; ?>
+                <?php if( !empty($subheading) ): ?>
+                  <p><?php echo esc_html($subheading); ?></p>
+                <?php endif; ?>
+              </div>
+            </div>
+          <?php endwhile; ?>
+        </div>
+      </div>
+      <?php endif; ?>
+    </div>
+  </div>
+
+  <div class="our-process">
+  <div class="human-hand">
+  <?php 
+    $image = get_field('hand_two_image');
+    if( !empty($image) ): ?>
+      <img src="<?php echo esc_url($image['url']); ?>" class="img-fluid" alt="<?php echo esc_attr($image['alt']); ?>">
+  <?php endif; ?>
+</div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-md-5 col-12">
+          <div class="our-process-heading">
+            <h2><span><?php the_field('ou_process_heading'); ?></span> <?php the_field('seamless_heading'); ?></h2>
+          </div>
+        </div>
+      </div>
+      <?php if ( have_rows('process_card') ) : ?>
+  <div class="row">
+    <?php $i = 0; ?>
+    <?php while ( have_rows('process_card') ) : the_row(); ?>
+      <?php
+        $no = get_sub_field('no');
+        $heading = get_sub_field('discuss_heading');
+        $subheading = get_sub_field('discuss_subheading');
+        $link = get_sub_field('talk_to_an_ai_expert');
+        $link_url = $link['url'] ?? '';
+        $link_title = $link['title'] ?? '';
+        $link_target = $link['target'] ?? '_self';
+
+        // Determine additional classes based on the index
+        $additional_class = '';
+        if ( $i === 1 ) {
+          $additional_class = ' mt-60';
+        } elseif ( $i === 2 ) {
+          $additional_class = ' mt-120';
+        }
+      ?>
+      <div class="col-lg-4 col-md-4 col-12">
+        <div class="process-card<?php echo esc_attr( $additional_class ); ?>">
+          <div class="process-number<?php echo $i === 0 ? ' side-line1' : ( $i === 1 ? ' top-line1 side-line2' : ' top-line1' ); ?>">
+            <span><?php echo esc_html( $no ); ?></span>
+          </div>
+          <h3><?php echo wp_kses_post( $heading ); ?></h3>
+          <p><?php echo wp_kses_post( $subheading ); ?></p>
+          <?php if ( $link_url && $link_title ) : ?>
+            <a class="blue-btn wow fadeInUp mt-4" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+              <?php echo esc_html( $link_title ); ?>
+              <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.7501 1.63619C11.7501 1.22198 11.4143 0.886194 11.0001 0.886194L4.25012 0.886194C3.83591 0.886194 3.50012 1.22198 3.50012 1.63619C3.50012 2.05041 3.83591 2.38619 4.25012 2.38619H10.2501V8.38619C10.2501 8.80041 10.5859 9.13619 11.0001 9.13619C11.4143 9.13619 11.7501 8.80041 11.7501 8.38619L11.7501 1.63619ZM1.46099 12.236L11.5305 2.16652L10.4698 1.10586L0.400334 11.1753L1.46099 12.236Z" fill="white"></path>
+              </svg>
+            </a>
+          <?php endif; ?>
+        </div>
+      </div>
+      <?php $i++; ?>
+    <?php endwhile; ?>
+  </div>
+<?php endif; ?>
+
+    </div>
+  </div>
+</section>
+
+<!-- Our Process section end -->
+<!-- Ecosystem section start -->
+<section id="ecosystem">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-5 col-md-8 col-12">
+            <div class="ecosystem-heading">
+               <h2><?php the_field('the_heading'); ?> <span><?php the_field('ai_ecosystem_heading'); ?></span> <?php the_field('we_heading'); ?><br><?php the_field('used_in_previous_work_heading'); ?></h2>
+            </div>
+         </div>
+      </div>
+      <?php if( have_rows('echo_cards') ): ?>
+    <div class="row">
+        <?php while( have_rows('echo_cards') ): the_row(); ?>
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="ecosystem-card">
+                    <h3><?php the_sub_field('framework_title'); ?></h3>
+                    <p><?php the_sub_field('framework_description'); ?></p>
+                    <?php the_sub_field('framework_list'); ?>
                 </div>
             </div>
+        <?php endwhile; ?>
+    </div>
+<?php endif; ?>
 
-            <div class="row">
-                    <div class="col-sm-12 col-md-5 col-lg-5">
-                        <div class="contact-text-part wow fadeInUp">
-                            <span>Get In Touch</span>
-                            <h2>Let’s Contact for Better Result</h2>
-                            <p>Have an inquiry for us? Please select a team you would like to reach and provide our information below.</p>
-                        </div>
-                        <div class="email-main">
-                        <div class="email-part">
-                            <div class="icon-back">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/email-icon.svg" class="img-fluid" alt="">
-                            </div>
-                            <div class="email-text">
-                                <h4>Email</h4>
-                                <p>inquiry@telesto.com</p>
-                            </div>
-                        </div>
-                        <div class="email-part">
-                            <div class="icon-back">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/call-icon.svg" class="img-fluid" alt="">
-                            </div>
-                            <div class="email-text">
-                                <h4>Contact no</h4>
-                                <p>(+64) 3454 4354</p>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-sm-12 col-md-7 col-lg-7">
-                        <div class="contact-form no-border wow fadeInUp">
-                  <form action="">
-                     <div class="row">
-                        <div class="form-group col-lg-6">
-                           <label>Name<span>*</span></label>
-                           <input class="form-control" placeholder="John Doe" name="" type="text">
-                        </div>
-                        <div class="form-group col-lg-6">
-                           <label>Email<span>*</span></label>
-                           <input class="form-control" placeholder="example@gmail.com" name="" type="text">
-                        </div>
-                        <div class="form-group col-lg-6">
-                           <label>Contact No<span>*</span></label>
-                           <input class="form-control" placeholder="John Doe" name="" type="text">
-                        </div>
-                        <div class="form-group col-lg-6">
-                           <label>Subject<span>*</span></label>
-                           <input class="form-control" placeholder="Enter Subject" name="" type="text">
-                        </div>
-                        <div class="form-group col-12">
-                           <label>Message<span>*</span></label>
-                           <textarea class="form-control" placeholder="Enter your message here..." name="" type="text"></textarea>
-                        </div>
-                         <div class="form-group col-12">
-                            <a class="blue-btn" href="#">
-                                    Submit
-                                    <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M11.7501 1.63619C11.7501 1.22198 11.4143 0.886194 11.0001 0.886194L4.25012 0.886194C3.83591 0.886194 3.50012 1.22198 3.50012 1.63619C3.50012 2.05041 3.83591 2.38619 4.25012 2.38619H10.2501V8.38619C10.2501 8.80041 10.5859 9.13619 11.0001 9.13619C11.4143 9.13619 11.7501 8.80041 11.7501 8.38619L11.7501 1.63619ZM1.46099 12.236L11.5305 2.16652L10.4698 1.10586L0.400334 11.1753L1.46099 12.236Z"
-                                            fill="white"
-                                        />
-                                    </svg>
-                                </a>
-                        </div>
-                     </div>
-                  </form>
-               </div>
-                    </div>
+   </div>
+</section>
+<!-- Ecosystem section end -->
+<!-- faq start -->
+<?php if ( have_rows('faq_items') ) : ?>
+<section id="faq" class="space">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-12">
+        <div class="accordion" id="accordionExample">
+          <h2>Frequently Asked Questions (FAQ)</h2>
+          <?php $i = 0; ?>
+          <?php while ( have_rows('faq_items') ) : the_row(); ?>
+            <?php
+              $i++;
+              $question = get_sub_field('question');
+              $answer = get_sub_field('answer');
+              $heading_id = 'heading' . $i;
+              $collapse_id = 'collapse' . $i;
+              $show_class = ($i === 1) ? 'show' : '';
+              $aria_expanded = ($i === 1) ? 'true' : 'false';
+            ?>
+            <div class="card">
+              <div class="card-header" id="<?php echo esc_attr($heading_id); ?>">
+                <h2 class="mb-0">
+                  <button class="btn btn-link btn-block text-left <?php echo ($i !== 1) ? 'collapsed' : ''; ?>" type="button" data-toggle="collapse" data-target="#<?php echo esc_attr($collapse_id); ?>" aria-expanded="<?php echo esc_attr($aria_expanded); ?>" aria-controls="<?php echo esc_attr($collapse_id); ?>">
+                    <?php echo esc_html($question); ?>
+                  </button>
+                </h2>
+              </div>
+              <div id="<?php echo esc_attr($collapse_id); ?>" class="collapse <?php echo esc_attr($show_class); ?>" aria-labelledby="<?php echo esc_attr($heading_id); ?>" data-parent="#accordionExample">
+                <div class="card-body">
+                  <?php echo wp_kses_post($answer); ?>
                 </div>
+              </div>
+            </div>
+          <?php endwhile; ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<?php endif; ?>
+
+<!-- end faq -->
+
+<!-- More services section start -->
+<section>
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-12 d-flex align-items-center">
+            <div class="heading-pnel wow fadeInUp">
+                <h2><?php the_field('select'); ?></h2>
             </div>
         </div>
     </div>
-</section>
-<!-- Service Detail content section end -->
-<section class="space pt-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="SuperchargeStrip Let-get">
-                            <div class="row align-items-center">
-                                <div class="col-sm-8">
-                                    <div class="SuperchargeContent">
-                                        <div class="wow fadeInUp">
-                                            <h3>Let’s get <span class="Theme-Color">started!</span></h3>
-                                            <h6>Get Advanced and modern Security Protocols</h6>
-                                            <p>AI automation refers to the use of artificial intelligence technologies to perform tasks...</p>
-                                        </div>
-                                        <a class="blue-btn blue_bfr_btn wow fadeInUp mt-4" href="#">
-                                            Talk to Expert
-                                            <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M11.7501 1.63619C11.7501 1.22198 11.4143 0.886194 11.0001 0.886194L4.25012 0.886194C3.83591 0.886194 3.50012 1.22198 3.50012 1.63619C3.50012 2.05041 3.83591 2.38619 4.25012 2.38619H10.2501V8.38619C10.2501 8.80041 10.5859 9.13619 11.0001 9.13619C11.4143 9.13619 11.7501 8.80041 11.7501 8.38619L11.7501 1.63619ZM1.46099 12.236L11.5305 2.16652L10.4698 1.10586L0.400334 11.1753L1.46099 12.236Z"
-                                                    fill="white"
-                                                ></path>
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
+    <?php
+    // Define the query arguments to fetch 'service' posts, excluding the current post
+    $args = array(
+        'post_type'      => 'service',
+        'posts_per_page' => -1, // Adjust the number as needed
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+        'post__not_in'   => array( get_the_ID() ), // Exclude current post
+    );
 
-                                <div class="col-sm-4">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/123.png" class="img-fluid wow fadeInUp" />
+    // Execute the query
+    $service_query = new WP_Query($args);
+
+    // Check if there are any posts to display
+    if ($service_query->have_posts()) : ?>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <div class="owl-carousel" id="service-slider">
+                    <?php while ($service_query->have_posts()) : $service_query->the_post(); ?>
+                        <div class="item">
+                            <div class="offer_card_gredient">
+                                <div class="offer_card_caption">
+                                    <div class="offer_card_img">
+                                        <?php if (has_post_thumbnail()) : ?>
+                                            <?php the_post_thumbnail('full'); ?>
+                                        <?php else : ?>
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/default-service-icon.svg" alt="Default Service Icon" />
+                                        <?php endif; ?>
+                                    </div>
+                                    <h3><?php the_title(); ?></h3>
+                                    <p><?php echo get_the_excerpt(); ?></p>
+                                    <a href="<?php the_permalink(); ?>">
+                                        Learn More
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/right-arrow.svg" alt="Right Arrow" />
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php endwhile; ?>
                 </div>
             </div>
-        </section>
+        </div>
+        <?php wp_reset_postdata(); ?>
+    <?php endif; ?>
+</div>
 
-
-
-
-
+</section>
+<!-- More services section end -->
+	
+	
 
    <?php get_footer(); ?>

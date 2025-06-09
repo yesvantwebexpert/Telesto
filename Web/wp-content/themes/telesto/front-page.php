@@ -1,4 +1,3 @@
-
 <?php /* Template Name: Homepage */
 
 get_header(); ?>
@@ -152,61 +151,52 @@ get_header(); ?>
                     </div>
                 </div>
 
-                <div class="row offer_card">
-    <?php if (have_rows("offer_cards")): ?>
-        <?php while (have_rows("offer_cards")):
+              <?php
+    // Define the query arguments to fetch 'service' posts, excluding the current post
+    $args = array(
+        'post_type'      => 'service',
+        'posts_per_page' => -1, // Adjust the number as needed
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+        'post__not_in'   => array( get_the_ID() ), // Exclude current post
+    );
 
-            the_row();
-            $icon = get_sub_field("offer_icon");
-            $heading = get_sub_field("offer_heading");
-            $subheading = get_sub_field("offer_subheading_");
-            $link = get_sub_field("learn");
-            $arrow = get_sub_field("arrow_");
-            ?>
-        <div class="col-lg-3 col-md-6 col-12">
-            <div class="offer_card_gredient wow fadeInUp">
-                <div class="offer_card_caption">
-                    <?php if ($icon): ?>
-                        <img src="<?php echo esc_url(
-                            $icon["url"]
-                        ); ?>" alt="<?php echo esc_attr($icon["alt"]); ?>" />
-                    <?php endif; ?>
+    // Execute the query
+    $service_query = new WP_Query($args);
 
-                    <?php if ($heading): ?>
-                        <h3><?php echo esc_html($heading); ?></h3>
-                    <?php endif; ?>
-
-                    <?php if ($subheading): ?>
-                        <p><?php echo esc_html($subheading); ?></p>
-                    <?php endif; ?>
-
-                    <?php if ($link && isset($link["url"])): ?>
-                        <a href="<?php echo esc_url(
-                            $link["url"]
-                        ); ?>" target="<?php echo esc_attr(
-    $link["target"]
-); ?>">
-                            <?php echo esc_html($link["title"]); ?>
-                            <?php if ($arrow): ?>
-                                <img src="<?php echo esc_url(
-                                    $arrow["url"]
-                                ); ?>" alt="<?php echo esc_attr(
-    $arrow["alt"]
-); ?>" />
-                            <?php endif; ?>
-                        </a>
-                    <?php endif; ?>
+    // Check if there are any posts to display
+    if ($service_query->have_posts()) : ?>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <div class="owl-carousel" id="service-slider">
+                    <?php while ($service_query->have_posts()) : $service_query->the_post(); ?>
+                        <div class="item">
+                            <div class="offer_card_gredient">
+                                <div class="offer_card_caption">
+                                    <div class="offer_card_img">
+                                        <?php if (has_post_thumbnail()) : ?>
+                                            <?php the_post_thumbnail('full'); ?>
+                                        <?php else : ?>
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/default-service-icon.svg" alt="Default Service Icon" />
+                                        <?php endif; ?>
+                                    </div>
+                                    <h3><?php the_title(); ?></h3>
+                                    <p><?php echo get_the_excerpt(); ?></p>
+                                    <a href="<?php the_permalink(); ?>">
+                                        Learn More
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/right-arrow.svg" alt="Right Arrow" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
                 </div>
             </div>
         </div>
-        <?php
-        endwhile; ?>
-    <?php else: ?>
-        <p>No offer cards found.</p>
+        <?php wp_reset_postdata(); ?>
     <?php endif; ?>
 </div>
 
-            </div>
         </section>
         <!-- section end-->
 
@@ -334,179 +324,214 @@ get_header(); ?>
         <!-- section end-->
 
         <!-- section -->
-        <section class="space pt-0 ApplicationsSection">
+         <section class="space pt-0 ">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-12 mb-5">
+            <div class="row align-items-center">
+                     <div class="col-lg-9 col-md-8 col-12 mb-5">
                         <div class="heading-pnel real-caption wow fadeInUp">
                             <h2><?php the_field("real_world_heading_"); ?></h2>
                             <p><?php the_field("how_telesto"); ?></p>
                         </div>
                     </div>
-
-                    <div id="Real-Slider" class="owl-carousel owl-theme">
-
-
-
-
-    <?php
-    $industries_query = new WP_Query([
-        "post_type" => "industries",
-        "posts_per_page" => -1, // Change this to a number if you want to limit
-    ]);
-
-    if ($industries_query->have_posts()):
-        while ($industries_query->have_posts()):
-
-            $industries_query->the_post();
-            $learn_more_link = get_field("learn_more_"); // ACF Link field
-            $right_arrow_image = get_field("right_arrow_image_"); // ACF Image (array)
-            $categories = get_the_category(); // Get default WordPress categories
-            $featured_img_url = get_the_post_thumbnail_url(
-                get_the_ID(),
-                "full"
-            );
-            ?>
-            <div class="item">
-                <ul class="real-content heading-panel">
-                    <li>
-                        <div class="real-image">
-                            <?php if ($featured_img_url): ?>
-                                <img src="<?php echo esc_url(
-                                    $featured_img_url
-                                ); ?>" alt="<?php echo esc_attr(
-    get_the_title()
-); ?>" />
-                            <?php else: ?>
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/real-slider2.svg" alt="Default Image" />
-                            <?php endif; ?>
-                            <span>
-                                <?php if (!empty($categories)) {
-                                    echo esc_html($categories[0]->name);
-                                } ?>
-                            </span>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="real-content heading-pnel">
-                            <h5><?php the_title(); ?></h5>
-                            <p><?php echo get_the_excerpt(); ?></p>
-                            <?php if (!empty($learn_more_link)): ?>
-                                <a href="<?php echo esc_url(
-                                    $learn_more_link["url"]
-                                ); ?>" class="learlink" target="<?php echo esc_attr(
-    $learn_more_link["target"]
-); ?>">
-                                    <?php echo esc_html(
-                                        $learn_more_link["title"]
-                                    ); ?>
-                                    <?php if (
-                                        !empty($right_arrow_image["url"])
-                                    ): ?>
-                                        <img src="<?php echo esc_url(
-                                            $right_arrow_image["url"]
-                                        ); ?>" alt="<?php echo esc_attr(
-    $right_arrow_image["alt"]
-); ?>" />
-                                    <?php else: ?>
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/right-arrow.svg" alt="right arrow" />
-                                    <?php endif; ?>
-                                </a>
-                            <?php endif; ?>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-    <?php
-        endwhile;
-        wp_reset_postdata();
-    endif;
+                 <?php 
+$link = get_field('application_link_button');
+if( $link ): 
+    $link_url = $link['url'];
+    $link_title = $link['title'];
+    $link_target = $link['target'] ? $link['target'] : '_self';
     ?>
-</div>
-
-
+    <div class="col-lg-3 col-md-4 col-12 mb-5 mobile-none">
+        <a class="blue-btn blue_bfr_btn wow fadeInUp ml-auto" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" style="visibility: visible;">
+            <?php echo esc_html( $link_title ); ?>
+            <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.7501 1.63619C11.7501 1.22198 11.4143 0.886194 11.0001 0.886194L4.25012 0.886194C3.83591 0.886194 3.50012 1.22198 3.50012 1.63619C3.50012 2.05041 3.83591 2.38619 4.25012 2.38619H10.2501V8.38619C10.2501 8.80041 10.5859 9.13619 11.0001 9.13619C11.4143 9.13619 11.7501 8.80041 11.7501 8.38619L11.7501 1.63619ZM1.46099 12.236L11.5305 2.16652L10.4698 1.10586L0.400334 11.1753L1.46099 12.236Z" fill="white"></path>
+            </svg>
+        </a>
+    </div>
+<?php endif; ?>
 
                 </div>
-            </div>
-        </section>
-        <!-- section end-->
-
-        <!-- section -->
-      <section class="space pt-0">
+                </div>
+     <div class="ApplicationsSection">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="heading-pnel success_caption mb-4 wow fadeInUp">
-                    <h2><?php the_field("case_studies"); ?></h2>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
+            <div id="Real-Slider" class="owl-carousel owl-theme common-arrow">
                 <?php
-                $args = [
-                    'post_type' => 'cases',
+                $casestudies_query = new WP_Query([
+                    'post_type'      => 'casestudies',
                     'posts_per_page' => -1,
-                ];
-                $query = new WP_Query($args);
+                ]);
 
-                if ($query->have_posts()):
-                    while ($query->have_posts()): $query->the_post();
-                        $learn_more = get_field('learn_more');
-                        $learn_arrow = get_field('learn_arrow');
-                        $category = get_the_terms(get_the_ID(), 'case_category'); // assuming custom taxonomy
-                ?>
-                    <div class="success_image_main" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/images/success-img.svg');">
-                        <div class="success-detial">
-                            <?php
-$category = get_the_terms(get_the_ID(), 'case_category');
-$category_name = 'Finance'; // Default value if no category is found
-
-// Check if $category is not a WP_Error and contains items
-if (!is_wp_error($category) && !empty($category)) {
-    $category_name = $category[0]->name; // Get the first category name
-}
-?>
-
-<span><?php echo esc_html($category_name); ?></span>
-
-                            <h3><?php the_title(); ?></h3>
-                            <ul>
+                if ( $casestudies_query->have_posts() ) :
+                    while ( $casestudies_query->have_posts() ) :
+                        $casestudies_query->the_post();
+                        $featured_img_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+                        $terms = get_the_terms( get_the_ID(), 'case_category' );
+                        ?>
+                        <div class="item">
+                            <ul class="real-content heading-panel">
                                 <li>
-                                    <p>
-                                        <?php echo wp_trim_words(get_the_excerpt(), 30); ?>
-                                    </p>
-                                </li>
-                                <?php if ($learn_more): ?>
-                                <li>
-                                    <a href="<?php echo esc_url($learn_more['url']); ?>" target="<?php echo esc_attr($learn_more['target']); ?>" class="learlink">
-                                        <?php echo esc_html($learn_more['title']); ?>
-                                        <?php if ($learn_arrow): ?>
-                                            <img src="<?php echo esc_url($learn_arrow['url']); ?>" alt="<?php echo esc_attr($learn_arrow['alt']); ?>" />
+                                    <div class="real-image">
+                                        <?php if ( $featured_img_url ) : ?>
+                                            <img src="<?php echo esc_url( $featured_img_url ); ?>" alt="<?php the_title_attribute(); ?>" />
+                                        <?php else : ?>
+                                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/real-slider2.svg' ); ?>" alt="Default Image" />
                                         <?php endif; ?>
-                                    </a>
+                                        <?php if ( $terms && ! is_wp_error( $terms ) ) : ?>
+                                            <span>
+                                                <?php
+                                                foreach ( $terms as $term ) {
+                                                    echo esc_html( $term->name ) . ' ';
+                                                }
+                                                ?>
+                                            </span>
+                                        <?php endif; ?>
+                                    </div>
                                 </li>
-                                <?php endif; ?>
+                                <li>
+                                    <div class="real-content heading-panel">
+                                        <h5><?php the_title(); ?></h5>
+                                        <p><?php echo get_the_excerpt(); ?></p>
+                                        <a href="<?php the_permalink(); ?>" class="learlink">
+                                            Learn More
+                                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/icons/right-arrow.svg' ); ?>" alt="right arrow" />
+                                        </a>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
-                    </div>
-                <?php
+                        <?php
                     endwhile;
                     wp_reset_postdata();
-                else:
-                    echo '<p>No case studies found.</p>';
                 endif;
                 ?>
             </div>
         </div>
     </div>
+</div>
+
+        </section>
+        <!-- section end-->
+
+        <!-- section -->
+    <section class="space pt-0">
+    <div class="container">
+        
+    <div class="row align-items-center">
+    <div class="col-lg-9 col-md-8 col-12 mb-5">
+        <div class="heading-pnel real-caption wow fadeInUp" style="visibility: visible;">
+           <h2><?php the_field("case_studies"); ?></h2>
+        </div>
+    </div>
+<?php
+$link = get_field('all_case_studies_link');
+if( $link ):
+    $link_url = $link['url'];
+    $link_title = $link['title'];
+    $link_target = $link['target'] ? $link['target'] : '_self';
+?>
+    <div class="col-lg-3 col-md-4 col-12 mb-5 mobile-none">
+        <a class="blue-btn blue_bfr_btn wow fadeInUp ml-auto" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" style="visibility: visible;">
+            <?php echo esc_html( $link_title ); ?>
+            <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M11.7501 1.63619C11.7501 1.22198 11.4143 0.886194 11.0001 0.886194L4.25012 0.886194C3.83591 0.886194 3.50012 1.22198 3.50012 1.63619C3.50012 2.05041 3.83591 2.38619 4.25012 2.38619H10.2501V8.38619C10.2501 8.80041 10.5859 9.13619 11.0001 9.13619C11.4143 9.13619 11.7501 8.80041 11.7501 8.38619L11.7501 1.63619ZM1.46099 12.236L11.5305 2.16652L10.4698 1.10586L0.400334 11.1753L1.46099 12.236Z"
+                    fill="white"
+                ></path>
+            </svg>
+        </a>
+    </div>
+<?php endif; ?>
+
+</div>
+
+       
+        <div class="row">
+    <div class="col-12">
+        <div class="Case-Studies-Box">
+            <?php
+            $args = array(
+                'post_type' => 'casestudies',
+                'posts_per_page' => 3,
+                'order' => 'ASC',
+            );
+            $case_query = new WP_Query($args);
+
+            if ($case_query->have_posts()) :
+                while ($case_query->have_posts()) : $case_query->the_post();
+
+                    // Get featured image or fallback
+                    $bg_image = get_the_post_thumbnail_url(get_the_ID(), 'full') 
+                        ?: get_template_directory_uri() . '/assets/images/default-bg.jpg';
+
+                    // Get custom taxonomy term
+                    $terms = get_the_terms(get_the_ID(), 'case_category');
+                    $category_name = !empty($terms) && !is_wp_error($terms) ? $terms[0]->name : 'Uncategorized';
+            ?>
+            <div class="Advantage-Items">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="AdvantageImage">
+                            <img src="<?php echo esc_url($bg_image); ?>" alt="Advantage Image" class="img-fluid" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="success-detial">
+                            <span><?php echo esc_html($category_name); ?></span>
+                            <h3><?php the_title(); ?></h3>
+
+                            <ul class="d-block">
+                                <li>
+                                    <p><?php echo wp_trim_words(get_the_excerpt(), 25, '...'); ?></p>
+                                </li>
+                                <li>
+                                    <a href="<?php the_permalink(); ?>" class="learlink">
+                                        Learn More
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/right-arrow.svg" alt="right arrow" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+                endwhile;
+                wp_reset_postdata();
+            else :
+                echo '<p>No case studies found.</p>';
+            endif;
+            ?>
+        </div>
+    </div>
+
+    <div class="row align-items-center">
+        <?php
+        $link = get_field('all_case_studies_link');
+        if ($link):
+            $link_url = esc_url($link['url']);
+            $link_title = esc_html($link['title']);
+            $link_target = $link['target'] ? esc_attr($link['target']) : '_self';
+        ?>
+        <div class="col-lg-12 mt-3 desktop-none">
+            <a class="blue-btn blue_bfr_btn wow fadeInUp mr-auto" href="<?php echo $link_url; ?>" target="<?php echo $link_target; ?>" style="visibility: visible;">
+                <?php echo $link_title; ?>
+                <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.7501 1.63619C11.7501 1.22198 11.4143 0.886194 11.0001 0.886194L4.25012 0.886194C3.83591 0.886194 3.50012 1.22198 3.50012 1.63619C3.50012 2.05041 3.83591 2.38619 4.25012 2.38619H10.2501V8.38619C10.2501 8.80041 10.5859 9.13619 11.0001 9.13619C11.4143 9.13619 11.7501 8.80041 11.7501 8.38619L11.7501 1.63619ZM1.46099 12.236L11.5305 2.16652L10.4698 1.10586L0.400334 11.1753L1.46099 12.236Z" fill="white"/>
+                </svg>
+            </a>
+        </div>
+        <?php endif; ?>
+    </div>
+</div>
+		</div>
+
 </section>
+
 
         <!-- section end-->
 
-        <section class="space">
+        <section class="space pt-0">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -695,7 +720,7 @@ if (!is_wp_error($category) && !empty($category)) {
             </div>
         </section>
 
-        <section class="space">
+        <section class="space pb-0 pt-0">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -705,62 +730,47 @@ if (!is_wp_error($category) && !empty($category)) {
                     </div>
                 </div>
 
-            <div id="Blog-Slider" class="owl-carousel owl-theme">
+        <div id="Blog-Slider" class="owl-carousel owl-theme">
     <?php
     $args = [
-        "post_type" => "post",
-        "posts_per_page" => 4,
+        'post_type'      => 'post',
+        'posts_per_page' => 4,
     ];
     $blog_query = new WP_Query($args);
 
     if ($blog_query->have_posts()):
         while ($blog_query->have_posts()):
-
             $blog_query->the_post();
 
-            $learn_more = get_field("learn_more");
-            $right_arrow = get_field("right_arrow_");
-            $featured_image = get_the_post_thumbnail_url(get_the_ID(), "full");
-            $featured_image = $featured_image
-                ? $featured_image
-                : get_template_directory_uri() .
-                    "/assets/images/blog/placeholder.png";
+            // Retrieve the featured image URL
+            $featured_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
+            if (!$featured_image) {
+                $featured_image = get_template_directory_uri() . '/assets/images/blog/placeholder.png';
+            }
+
+            // Retrieve the right arrow image from ACF (optional)
+            $right_arrow = get_field('right_arrow_');
             ?>
             <div class="item">
-                <div class="Blog-Items wow ">
+                <div class="Blog-Items wow">
                     <div class="Blog-Items-image">
-                        <img src="<?php echo esc_url(
-                            $featured_image
-                        ); ?>" alt="<?php echo esc_attr(
-    get_the_title()
-); ?>" class="img-fluid" />
+                        <img src="<?php echo esc_url($featured_image); ?>" alt="<?php the_title_attribute(); ?>" class="img-fluid" />
                     </div>
 
                     <div class="Blog-Items-Content">
                         <h4><?php the_title(); ?></h4>
-
-                        <?php if ($learn_more): ?>
-                            <a href="<?php echo esc_url(
-                                $learn_more["url"]
-                            ); ?>" target="<?php echo esc_attr(
-    $learn_more["target"]
-); ?>" class="learlink">
-                                <?php echo esc_html($learn_more["title"]); ?>
-                                <?php if (!empty($right_arrow["url"])): ?>
-                                    <img src="<?php echo esc_url(
-                                        $right_arrow["url"]
-                                    ); ?>" alt="<?php echo esc_attr(
-    $right_arrow["alt"]
-); ?>" />
-                                <?php else: ?>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/right-arrow.svg" alt="Right Arrow" />
-                                <?php endif; ?>
-                            </a>
-                        <?php endif; ?>
+                        <a href="<?php the_permalink(); ?>" class="learlink">
+                            Learn More
+                            <?php if (!empty($right_arrow['url'])): ?>
+                                <img src="<?php echo esc_url($right_arrow['url']); ?>" alt="<?php echo esc_attr($right_arrow['alt']); ?>" />
+                            <?php else: ?>
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/right-arrow.svg" alt="Right Arrow" />
+                            <?php endif; ?>
+                        </a>
                     </div>
                 </div>
             </div>
-    <?php
+            <?php
         endwhile;
         wp_reset_postdata();
     endif;
@@ -838,6 +848,3 @@ if (!is_wp_error($category) && !empty($category)) {
         </section>
 
        <?php get_footer(); ?>
-
-
-       

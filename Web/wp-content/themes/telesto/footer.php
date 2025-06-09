@@ -3,9 +3,14 @@
                 <div class="FooterTop">
                     <div class="row justify-content-between">
                         <div class="col-lg-5 col-md-5">
-                            <div class="footerLogo">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" />
-                            </div>
+                            <?php
+$image = get_field('footer_left_logo', 'option');
+if (!empty($image)): ?>
+    <div class="footerLogo">
+        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+    </div>
+<?php endif; ?>
+
                             <div class="FooterItems">
                                 <h4><?php echo get_field('address', 'options'); ?></h4>
                                 <p>
@@ -15,12 +20,26 @@
                             <div class="MainBoxLinks">
                             <div class="FooterItems">
                                 <h4><?php echo get_field('contact_heading_', 'options'); ?></h4>
-                                <p><a href="#"><?php echo get_field('contact_detail', 'options'); ?></a></p>
+                               <?php 
+$link = get_field('contact_detail', 'option');
+
+if( $link && is_array($link) ):
+  $url = esc_url($link['url']);
+  $title = esc_html($link['title']);
+  $target = !empty($link['target']) ? esc_attr($link['target']) : '_self';
+?>
+  <p>
+    <a href="<?php echo $url; ?>" target="<?php echo $target; ?>">
+      <?php echo $title; ?>
+    </a>
+  </p>
+<?php endif; ?>
+
                             </div>
 
                             
                             <?php
-$link = get_field('talk_to_expert'); // ACF link field returning an array
+$link = get_field('talk_to_expert','options'); 
 
 if ($link):
     $link_url = $link['url'];
@@ -78,28 +97,30 @@ if ($link):
                                 </div>
 
                                 <div class="MediaBox">
-                                    <ul>
-                                        <li>
-                                         <?php $facebook = get_field('facebook'); ?>
+  <ul>
+    <?php if( have_rows('social_link', 'option') ): ?>
+      <?php while( have_rows('social_link', 'option') ): the_row(); 
+        $enabled = get_sub_field('enable_social_link');
+        $link = get_sub_field('social_icon_button');
+        $image = get_sub_field('social_icon_image');
 
-                                            <a href="<?php echo $facebook['url']; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/assets/images/footer/1.png" /></a>
-                                        </li>
-                                        <li>
-                                            <?php $twitter = get_field('twitter'); ?>
-                                            <a href="<?php echo $twitter['url']; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/assets/images/footer/2.png" /></a>
-                                        </li>
-                                        
-                                        <li>
-                                            <?php $youtube = get_field('youtube'); ?>
-                                            <a href="#"><img src="<?php bloginfo('template_url'); ?>/assets/images/footer/4.png" /></a>
-                                        </li>
+        if( $enabled && in_array('enable', $enabled) && $link && $image ):
+          $url = esc_url($link['url']);
+          $target = esc_attr($link['target'] ?: '_self');
+          $img_url = esc_url($image['url']);
+          $img_alt = esc_attr($image['alt'] ?: 'Social Icon');
+      ?>
+        <li>
+          <a href="<?php echo $url; ?>" target="<?php echo $target; ?>">
+            <img src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>" />
+          </a>
+        </li>
+      <?php endif; endwhile; ?>
+    <?php endif; ?>
+  </ul>
+</div>
 
-                                        <li>
-                                            <?php $linkedin = get_field('linkedin'); ?>
-                                            <a href="<?php echo $linkedin['url']; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/assets/images/footer/3.png" /></a>
-                                        </li>
-                                    </ul>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -114,6 +135,30 @@ if ($link):
 
 
 
+       
+         <script type="text/javascript">
+               document.querySelectorAll('.ser-tab a[href^="#"]').forEach((anchor) => {
+             anchor.addEventListener("click", function (e) {
+                 e.preventDefault();
+         
+                 const targetId = this.getAttribute("href").substring(1);
+                 const target = document.getElementById(targetId);
+         
+                 if (target) {
+                     const headerHeight = document.querySelector("header").offsetHeight;
+                     const offsetTop = target.offsetTop - headerHeight - 70;
+         
+                     window.scrollTo({
+                         top: offsetTop,
+                         behavior: "smooth",
+                     });
+                 }
+             });
+         });
+         </script>
+
+
+
 
 
  
@@ -124,6 +169,7 @@ if ($link):
 
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
 
       
 
