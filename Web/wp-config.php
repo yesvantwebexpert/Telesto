@@ -20,13 +20,13 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'telesto' );
+define( 'DB_NAME', 'myprojec_telesto' );
 
 /** Database username */
-define( 'DB_USER', 'admin' );
+define( 'DB_USER', 'myprojec_telesto_user' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'adreno' );
+define( 'DB_PASSWORD', '$N_)m2F1?0t$' );
 
 /** Database hostname */
 define( 'DB_HOST', 'localhost' );
@@ -85,7 +85,7 @@ $table_prefix = 'wp_';
  *
  * @link https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/
  */
-define( 'WP_DEBUG', true );
+define( 'WP_DEBUG', false );
 define('FS_METHOD', 'direct');
 
 /* Add any custom values between this line and the "stop editing" line. */
@@ -101,4 +101,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
-
