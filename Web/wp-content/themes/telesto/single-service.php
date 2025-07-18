@@ -5,7 +5,7 @@
 <!-- Comman banner section start -->
 
 <?php
-$image = get_field('banner_image');
+$image = get_field('main_banner_image');
 $image_url = $image['url'];
 ?>
 
@@ -34,11 +34,11 @@ $image_url = $image['url'];
 <section id="service-tab" class="service-tab">
  <div class="container">
     <div class="ser-tab">
-       <a href="#description" class="tab-links active"><?php the_field('description'); ?></a>
-       <a href="#industry-applications" class="tab-links"><?php the_field('industry_heading'); ?></a>
-       <a href="#choose-telesto" class="tab-links"><?php the_field('why_choose_telesto'); ?></a>
-       <a href="#ecosystem" class="tab-links"><?php the_field('our_process'); ?></a>
-       <a href="#faq" class="tab-links"><?php the_field('tab_on_aksed_frequently'); ?></a>
+       <a href="#description" class="tab-links active"><?php the_field('tab_first_title'); ?></a>
+       <a href="#industry-applications" class="tab-links"><?php the_field('tab_second_title'); ?></a>
+       <a href="#choose-telesto" class="tab-links"><?php the_field('tab_third_title'); ?></a>
+       <a href="#ecosystem" class="tab-links"><?php the_field('tab_fourth_title'); ?></a>
+       <a href="#faq" class="tab-links"><?php the_field('tab_fifth_title'); ?></a>
     </div>
  </div>
 </section>
@@ -48,7 +48,7 @@ $image_url = $image['url'];
        <div class="col-md-6 col-lg-6 col-12">
           <div class="service-detial-img">
   <?php
-  $image = get_field('ai_seond_image');
+  $image = get_field('tab_one_image');
   if (!empty($image)) :
   ?>
     <img src="<?php echo esc_url($image['url']); ?>" class="img-fluid" alt="<?php echo esc_attr($image['alt']); ?>">
@@ -59,16 +59,25 @@ $image_url = $image['url'];
        <div class="col-md-6 col-lg-6 col-12">
          <div class="service-detial-content">
             <div class="service-detial-span">
-               <span><?php the_field('data'); ?></span>
+               <span>  <?php
+                        $terms = get_the_terms(get_the_ID(), 'service_category');
+                        if (!empty($terms) && !is_wp_error($terms)) {
+                            foreach ($terms as $term) {
+                                echo '<span>' . esc_html($term->name) . '</span>';
+                            }
+                        } else {
+                            echo '<span>Uncategorized</span>';
+                        }
+                        ?></span>
             </div>
-            <h2><?php the_field('cost_heading'); ?></h2>
-            <p><?php the_field('cost_subheading'); ?></p>
-            <h5><?php the_field('keycapablities_heading'); ?></h5>
-            <?php if( have_rows('key_capabilities') ): ?>
+            <h2><?php the_field('tab_one_heading'); ?></h2>
+            <p><?php the_field('tab_one_text'); ?></p>
+            <h5><?php the_field('list__main_heading'); ?></h5>
+            <?php if( have_rows('tab_one_list') ): ?>
     <ul>
-        <?php while( have_rows('key_capabilities') ): the_row(); 
-            $heading = get_sub_field('key_heading');
-            $subheading = get_sub_field('key_subheading');
+        <?php while( have_rows('tab_one_list') ): the_row(); 
+            $heading = get_sub_field('list_heading');
+            $subheading = get_sub_field('list_text');
         ?>
             <li>
                 <?php echo esc_html($heading); ?>
@@ -81,7 +90,7 @@ $image_url = $image['url'];
 <?php endif; ?>
 
           <?php
-$further_link = get_field('further');
+$further_link = get_field('first_tab_section_button');
 if( $further_link ):
     $link_url = $further_link['url'];
     $link_title = $further_link['title'];
@@ -108,7 +117,7 @@ if( $further_link ):
     <div class="row">
        <div class="col-lg-12 col-md-12 col-12">
           <div class="industry-applications-heading">
-             <h2><?php the_field('industry_application_heading'); ?></h2>
+             <h2><?php the_field('tab_two_section_heading'); ?></h2>
           </div>
        </div>
     </div>
@@ -136,7 +145,7 @@ if( $further_link ):
                      <?php endif; ?>
                      <div class="industry-applications-button">
                         <a class="blue-btn wow fadeInUp" style="animation-delay: 0.4s;" href="<?php echo esc_url(get_term_link($term)); ?>">
-                           Case studies
+                           <?php the_field('case_studies_button__text'); ?>
                            <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M11.7501 1.63619C11.7501 1.22198 11.4143 0.886194 11.0001 0.886194L4.25012 0.886194C3.83591 0.886194 3.50012 1.22198 3.50012 1.63619C3.50012 2.05041 3.83591 2.38619 4.25012 2.38619H10.2501V8.38619C10.2501 8.80041 10.5859 9.13619 11.0001 9.13619C11.4143 9.13619 11.7501 8.80041 11.7501 8.38619L11.7501 1.63619ZM1.46099 12.236L11.5305 2.16652L10.4698 1.10586L0.400334 11.1753L1.46099 12.236Z" fill="white"/>
                            </svg>
@@ -161,7 +170,7 @@ if( $further_link ):
 <!-- Why choose section start -->
 <section id="choose-telesto">
   <?php
-  $hand_image = get_field('hand_image');
+  $hand_image = get_field('tab_three_section_image');
   if( !empty($hand_image) ): ?>
     <div class="robot-hand">
         <img src="<?php echo esc_url($hand_image['url']); ?>" class="img-fluid" alt="<?php echo esc_attr($hand_image['alt']); ?>">
@@ -172,10 +181,10 @@ if( $further_link ):
     <div class="row">
       <div class="col-lg-5 col-md-5 col-12">
         <div class="choose-telesto-process">
-          <h2><?php the_field('why_choose_heading'); ?> <span><?php the_field('telesto_heading'); ?></span><br><?php the_field('data_heading'); ?></h2>
-          <p><?php the_field('combining_heading'); ?></p>
+          <h2><?php the_field('tab_third_section_first_heading'); ?> <span><?php the_field('highlighted_heading'); ?></span><br><?php the_field('tab_third_second__heading'); ?></h2>
+          <p><?php the_field('tab_third_section_text'); ?></p>
           <?php
-          $link = get_field('contact_link');
+          $link = get_field('tab_third_section_button');
           if( $link ):
               $link_url = $link['url'];
               $link_title = $link['title'];
@@ -191,13 +200,13 @@ if( $further_link ):
         </div>
       </div>
 
-      <?php if( have_rows('industries_feature') ): ?>
+      <?php if( have_rows('tab_third_cards') ): ?>
       <div class="col-lg-7 col-md-7 col-12">
         <div class="choose-telesto-list-wrapper">
-          <?php while( have_rows('industries_feature') ): the_row(); 
-              $heading = get_sub_field('all_industry_heading');
-              $image = get_sub_field('all_industries_image');
-              $subheading = get_sub_field('all_industires_subheading');
+          <?php while( have_rows('tab_third_cards') ): the_row(); 
+              $heading = get_sub_field('tab_third_card_heading');
+              $image = get_sub_field('tab_third__card_image');
+              $subheading = get_sub_field('tab_third__card_text');
           ?>
             <div class="choose-telesto-list">
               <?php if( !empty($image) ): ?>
@@ -224,7 +233,7 @@ if( $further_link ):
   <div class="our-process">
   <div class="human-hand">
   <?php 
-    $image = get_field('hand_two_image');
+    $image = get_field('fourth_section_image');
     if( !empty($image) ): ?>
       <img src="<?php echo esc_url($image['url']); ?>" class="img-fluid" alt="<?php echo esc_attr($image['alt']); ?>">
   <?php endif; ?>
@@ -234,19 +243,19 @@ if( $further_link ):
       <div class="row">
         <div class="col-lg-5 col-md-5 col-12">
           <div class="our-process-heading">
-            <h2><span><?php the_field('ou_process_heading'); ?></span> <?php the_field('seamless_heading'); ?></h2>
+            <h2><span><?php the_field('fourth_section_highlighted_heading'); ?></span> <?php the_field('fourth_section_heading'); ?></h2>
           </div>
         </div>
       </div>
-      <?php if ( have_rows('process_card') ) : ?>
+      <?php if ( have_rows('fourth__section_card_items') ) : ?>
   <div class="row">
     <?php $i = 0; ?>
-    <?php while ( have_rows('process_card') ) : the_row(); ?>
+    <?php while ( have_rows('fourth__section_card_items') ) : the_row(); ?>
       <?php
-        $no = get_sub_field('no');
-        $heading = get_sub_field('discuss_heading');
-        $subheading = get_sub_field('discuss_subheading');
-        $link = get_sub_field('talk_to_an_ai_expert');
+        $no = get_sub_field('fourth_section_card_number');
+        $heading = get_sub_field('fourth_section_card_heading');
+        $subheading = get_sub_field('fourth_section_card__text');
+        $link = get_sub_field('fourth_secton_button');
         $link_url = $link['url'] ?? '';
         $link_title = $link['title'] ?? '';
         $link_target = $link['target'] ?? '_self';
@@ -292,18 +301,26 @@ if( $further_link ):
       <div class="row">
          <div class="col-lg-5 col-md-8 col-12">
             <div class="ecosystem-heading">
-               <h2><?php the_field('the_heading'); ?> <span><?php the_field('ai_ecosystem_heading'); ?></span> <?php the_field('we_heading'); ?><br><?php the_field('used_in_previous_work_heading'); ?></h2>
+               <h2><?php the_field('fifth_section_first_heading'); ?> <span><?php the_field('fifth_section_highlightd_heading'); ?></span> <?php the_field('fifth_section_second_heading'); ?></h2>
             </div>
          </div>
       </div>
-      <?php if( have_rows('echo_cards') ): ?>
+      <?php if( have_rows('fifth_section_cards') ): ?>
     <div class="row">
-        <?php while( have_rows('echo_cards') ): the_row(); ?>
+        <?php while( have_rows('fifth_section_cards') ): the_row(); ?>
             <div class="col-lg-4 col-md-4 col-12">
                 <div class="ecosystem-card">
-                    <h3><?php the_sub_field('framework_title'); ?></h3>
-                    <p><?php the_sub_field('framework_description'); ?></p>
-                    <?php the_sub_field('framework_list'); ?>
+                   <?php the_sub_field('fifth_section_cards_heading'); ?>
+					
+                  
+					<div class="read-more-container">
+  <div class="read-more-content">
+    <?php echo wp_kses_post(get_sub_field('fifth_section_card_list')); ?>
+  </div>
+  <a href="#" class="read-more-toggle">See More</a>
+</div>
+
+					 
                 </div>
             </div>
         <?php endwhile; ?>
@@ -313,6 +330,8 @@ if( $further_link ):
    </div>
 </section>
 <!-- Ecosystem section end -->
+
+
 <!-- faq start -->
 <?php if ( have_rows('faq_items') ) : ?>
 <section id="faq" class="space">
@@ -320,13 +339,13 @@ if( $further_link ):
     <div class="row">
       <div class="col-lg-12 col-md-12 col-12">
         <div class="accordion" id="accordionExample">
-          <h2>Frequently Asked Questions (FAQ)</h2>
+          <h2><?php the_field('tab_six_section_heading')?></h2>
           <?php $i = 0; ?>
-          <?php while ( have_rows('faq_items') ) : the_row(); ?>
+          <?php while ( have_rows('accordion') ) : the_row(); ?>
             <?php
               $i++;
-              $question = get_sub_field('question');
-              $answer = get_sub_field('answer');
+              $question = get_sub_field('accordion_heading');
+              $answer = get_sub_field('accordion_text');
               $heading_id = 'heading' . $i;
               $collapse_id = 'collapse' . $i;
               $show_class = ($i === 1) ? 'show' : '';
@@ -362,7 +381,7 @@ if( $further_link ):
     <div class="row">
         <div class="col-lg-12 col-md-12 col-12 d-flex align-items-center">
             <div class="heading-pnel wow fadeInUp">
-                <h2><?php the_field('select'); ?></h2>
+                <h2><?php the_field('services_heading'); ?></h2>
             </div>
         </div>
     </div>
@@ -398,7 +417,7 @@ if( $further_link ):
                                     <h3><?php the_title(); ?></h3>
                                     <p><?php echo get_the_excerpt(); ?></p>
                                     <a href="<?php the_permalink(); ?>">
-                                        Learn More
+                                        <?php the_field('service_card_button'); ?>
                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/right-arrow.svg" alt="Right Arrow" />
                                     </a>
                                 </div>

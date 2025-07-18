@@ -5,7 +5,7 @@
 
  <!-- Comman banner section start -->
     <?php 
-$banner = get_field('term_banner');
+$banner = get_field('main_banner');
 if ($banner): 
 ?>
 <section id="cm-banner" style="background-image: url(<?php echo esc_url($banner['url']); ?>);">
@@ -30,20 +30,16 @@ if ($banner):
     </div>
 </section>
 <!-- Comman banner section end -->
+
+
+
 <!-- Policy content section start -->
 <section id="Policy-content" class="space">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-12 col-md-12 col-lg-9">
                 <div class="policy-content-main wow fadeInUp">
-                    <h2><?php the_field('first_heading'); ?></h2>
-                    <p><?php the_field('first_subheading'); ?></p>
-                    <h3><?php the_field('second_heading'); ?></h3>
-                    <p><?php the_field('second_subheading'); ?></p>
-                    <h4><?php the_field('third_heading'); ?></h4>
-                    <p><?php the_field('third_subheading'); ?></p>
-                    <h3><?php the_field('fourth_heading'); ?></h3>
-                    <p><?php the_field('fourth_subheading'); ?></p>
+                    <?php the_content(); ?>
                 </div>
             </div>
         </div>

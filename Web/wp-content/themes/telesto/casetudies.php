@@ -33,6 +33,9 @@ if ($banner_image):
     </div>
 </section>
 <!-- Comman banner section end -->
+	
+	
+	
 <!-- section -->
 <section class="space pt-0">
     <?php
@@ -54,7 +57,6 @@ if ($banner_image):
             $bg_image = get_the_post_thumbnail_url(get_the_ID(), 'full') 
                 ?: get_template_directory_uri() . '/assets/images/default-bg.jpg';
 
-            // ✅ Get custom taxonomy term name
             $terms = get_the_terms(get_the_ID(), 'case_category');
             $category_name = (!empty($terms) && !is_wp_error($terms)) ? $terms[0]->name : 'Uncategorized';
     ?>
@@ -73,17 +75,21 @@ if ($banner_image):
                                     <div class="success-detial">
                                         <span><?php echo esc_html($category_name); ?></span>
                                         <h3><?php the_title(); ?></h3>
-                                        <ul class="d-block">
-                                            <li>
-                                                <p><?php echo wp_trim_words(get_the_excerpt(), 25, '...'); ?></p>
-                                            </li>
-                                            <li>
-                                                <a href="<?php the_permalink(); ?>" class="learlink">
-                                                    Learn More
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/right-arrow.svg" alt="right arrow" />
-                                                </a>
-                                            </li>
-                                        </ul>
+<ul class="d-block">
+    <li>
+        <p><?php echo wp_trim_words(get_the_excerpt(), 25, '...'); ?></p>
+    </li>
+    <li>
+        <a href="<?php the_permalink(); ?>" class="learlink">
+            <?php
+            $case_studies_single_post_button = get_field('case_study_button');
+            echo !empty($case_studies_single_post_button) ? esc_html($case_studies_single_post_button) : 'Learn More';
+            ?>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/right-arrow.svg" alt="right arrow" />
+        </a>
+    </li>
+</ul>
+
                                     </div>
                                 </div>
                             </div>
@@ -122,6 +128,8 @@ if ($banner_image):
 </section>
 
 <!-- section end-->
+	
+	
 <section class="space">
             <div class="container">
                 <div class="row">
@@ -131,14 +139,14 @@ if ($banner_image):
                                 <div class="col-sm-8">
                                     <div class="SuperchargeContent">
                                         <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                                            <h3><?php the_field('lets'); ?> <span class="Theme-Color"><?php the_field('started'); ?></span></h3>
-                                            <h6><?php the_field('get_advanced'); ?></h6>
-                                            <p><?php the_field('automation'); ?></p>
+                                            <h3><?php the_field('cta_heading'); ?> <span class="Theme-Color"><?php the_field('cta_highlighted_heading'); ?></span></h3>
+                                            <h6><?php the_field('cta_subheading'); ?></h6>
+                                            <p><?php the_field('cta_text'); ?></p>
                                         </div>
                                <div class="hero_link_btn">
                                     <?php
-                                    $first_link = get_field('banner_first_link');
-                                    $second_link = get_field('banner_second_link');
+                                    $first_link = get_field('cta_button_1');
+                                    $second_link = get_field('cta_button_2');
                                     ?>
 
                                     <?php if ($first_link): ?>
@@ -173,12 +181,12 @@ if ($banner_image):
                                 </div>
 
                                <?php 
-$image = get_field('mobile_image');
-if( !empty( $image ) ): ?>
-    <div class="col-sm-4">
-        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-    </div>
-<?php endif; ?>
+							$image = get_field('cta_image');
+							if( !empty( $image ) ): ?>
+								<div class="col-sm-4">
+									<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+								</div>
+							<?php endif; ?>
 
                             </div>
                         </div>

@@ -40,7 +40,6 @@ if ($banner_image):
 <main>
     <section class="space pt-0">
         <div class="container">
-            <h1><?php single_term_title(); ?> Case Studies</h1>
             <div class="row">
                 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                     <?php
@@ -70,7 +69,7 @@ if ($banner_image):
                                                 </li>
                                                 <li>
                                                     <a href="<?php the_permalink(); ?>" class="learlink">
-                                                        Learn More
+                                                       <?php the_field('button_text', 'option'); ?>
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/right-arrow.svg" alt="right arrow" />
                                                     </a>
                                                 </li>
@@ -82,7 +81,7 @@ if ($banner_image):
                         </div>
                     </div>
                 <?php endwhile; else : ?>
-                    <p>No case studies found in this category.</p>
+                    <p class="case">No case studies found in this category.</p>
                 <?php endif; ?>
             </div>
         </div>
@@ -102,17 +101,17 @@ if ($banner_image):
                                     <div class="SuperchargeContent">
                                        <div class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
     <h3>
-        <?php echo get_field('lets'); ?>
-        <span class="Theme-Color"><?php echo get_field('started'); ?></span>
+        <?php echo get_field('lets', 42); ?>
+        <span class="Theme-Color"><?php echo get_field('started', 42); ?></span>
     </h3>
-    <h6><?php echo get_field('get_advanced'); ?></h6>
-    <p><?php echo get_field('automation'); ?></p>
+    <h6><?php echo get_field('get_advanced', 42); ?></h6>
+    <p><?php echo get_field('automation', 42); ?></p>
 </div>
 
                                <div class="hero_link_btn">
                                     <?php
-                                    $first_link = get_field('banner_first_link');
-                                    $second_link = get_field('banner_second_link');
+                                    $first_link = get_field('banner_first_link', 42);
+                                    $second_link = get_field('banner_second_link', 42);
                                     ?>
 
                                     <?php if ($first_link): ?>
@@ -147,7 +146,7 @@ if ($banner_image):
                                 </div>
 
                                <?php 
-$image = get_field('mobile_image');
+$image = get_field('mobile_image', 42);
 if( !empty( $image ) ): ?>
     <div class="col-sm-4">
         <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />

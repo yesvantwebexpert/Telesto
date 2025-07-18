@@ -24,17 +24,31 @@
     background-image: url(../images/bar.svg);
      
 }
+body .mailpoet_form.mailpoet_form_successfully_send .mailpoet_validate_success{
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: -1px;
+    transform: translate(-50%, -50%);
+    left: 0;
+    transform: unset;
+    text-align: left;
+    font-size: 12px;
+    padding-left: 4px;
+    color: rgba(0, 255, 153, 1);
+    line-height: 16px;
+}
  @media (min-width: 992px) {
      .container {
          max-width: 1070px;
     }
     ul.real-content.heading-panel > li:nth-child(1) {
-    width: 40%;
-}
+    	width: 40%;
+	}
 
-ul.real-content.heading-panel > li:nth-child(2) {
-    width: 60%;
-}
+	ul.real-content.heading-panel > li:nth-child(2) {
+		width: 60%;
+	}
 }
  @media (min-width: 1300px) {
      .container {
@@ -43,13 +57,20 @@ ul.real-content.heading-panel > li:nth-child(2) {
 }
 
 @media screen and (min-width: 768px) {
-.mobile-video{
-display: none;
-}
+	.mobile-video{
+		display: none;
+	}
     .Advantage-Items.BlogItems {
-    padding: 50px;
+    	padding: 50px;
+	}
 }
+
+@media screen and (max-width: 1700px) {
+		#Real-Slider .owl-nav {
+		right:30%;
+	}
 }
+
 @media screen and (max-width: 1500px) {
     .heading-pnel p {
         font-size:14px;
@@ -75,23 +96,39 @@ display: none;
     .experience-section .heading-pnel {
         max-width: 470px;
     }
+	#Real-Slider .owl-nav {
+		right:38%;
+	}
 }
 
 @media screen and (max-width: 1300px) {
-    
+	.logo_slider_title h4 {
+		font-size:20px;
+	}
+	.hero-left-caption h1 {
+		line-height: 50px;
+		font-size: 44px;
+	}
  }
 @media screen and (max-width: 1200px) {}
 
 @media screen and (max-width: 1080px) {
-    
+ .navbar-light .navbar-nav > li {
+	margin: 0 15px;
+}  
+	.schedule-call{margin-left:15px;}
 }
 @media screen and (max-width: 1024px) {
     
 }
 @media screen and (min-width: 991px) and (max-width: 1024px) {
-
+	.mob-menu-header-holder{display:none !important;}
+	
 }
 @media screen and (max-width: 991px) {
+	.header {
+		display:none;
+	}
     .container {
     max-width: 100%;
     padding-left: 30px;
@@ -126,7 +163,7 @@ display: none;
     padding-right: 20px;
 }
     .navbar-light .navbar-nav > li > a {
-            margin-left: 0 !important;
+     margin-left: 0 !important;
     color: #fff;
     display: block;
     text-align: left;
@@ -163,7 +200,9 @@ display: none;
     .banner{
         height: auto;
     }
-
+.mobmenur-container {
+	top: 18px !important;
+}
     .hero-left-caption h1 {
     line-height: 1.5;
     font-size: 35px; 
@@ -177,11 +216,11 @@ display: none;
     margin-bottom: 40px;
 }
 .ApplicationsSection .container {
-   max-width: 720px;
-    margin: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-}
+        max-width: calc(100% - 60px);
+        margin: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 .space {
     padding: 40px 0px;
 }
@@ -255,17 +294,27 @@ line-height: 1.5;
 
 }
  @media screen and (max-width: 767px) {
-	 .our-process:after{
+	.NewGridCard .offer_card_caption{
+		display: flex;
+		align-items: flex-start;
+		gap: 15px;
+		padding: 20px 25px;
+		flex-direction: column;
+	}
+	.our-process:after{
 		 display:none;
 	 }
      .Case-Studies-Box .Advantage-Items { 
-    padding: 30px;
-    padding-bottom: 30px;
-    margin-bottom: 30px;
-}
-     .mobile-none{
+		padding: 30px;
+		padding-bottom: 30px;
+		margin-bottom: 30px;
+	}
+	.NewGridCard .offer_card_caption figcaption {
+		width: calc(100% - 0px);
+	}
+    .mobile-none{
          display:none;
-     }
+    }
      .desktop-none{
          display:block
      }
@@ -527,9 +576,16 @@ display: none;
 .expert-heading {
     margin-bottom: 30px;
 }
+.mob-menu-header-holder {
+	padding: 10px 0;
+	height: auto !important;
+}
+
+.mobmenur-container{top:18px !important;}
 #cm-banner {
-height: auto;
-    padding: 110px 0px 20px;
+    height: auto;
+    padding: 50px 0;
+    margin-top: 0;
 }
 .banner-left-side p{
     margin-top: 0px;
@@ -648,6 +704,7 @@ ol.breadcrumb{
 .breadcrumb-item + .breadcrumb-item::before{
     padding: 0px 5px;
 }
+	 
 }
 
  @media screen and (min-width: 574px) and (max-width: 767px) {
@@ -886,6 +943,13 @@ li.choose_bg {
 }
 }
 @media screen and (max-width: 991px) {
+	.mob-menu-header-holder {
+	padding: 10px 0;
+	height: auto !important;
+}
+.mobmenu-right-bt{right: 15px !important; top: 15px !important; }
+
+	
     .service-detial-img img{
         max-width: 100%;
         height: 100%;

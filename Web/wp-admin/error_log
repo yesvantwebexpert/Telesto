@@ -14,3 +14,42 @@
 [06-Jun-2025 13:47:04 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/functions.php on line 410
 [06-Jun-2025 14:09:08 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/functions.php on line 420
 [06-Jun-2025 14:09:27 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/functions.php on line 398
+[10-Jun-2025 05:36:36 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/functions.php on line 427
+[10-Jun-2025 05:36:55 UTC] PHP Warning:  require_once(/home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/class-wp-bootstrap-navwalker.php): failed to open stream: No such file or directory in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/functions.php on line 429
+[10-Jun-2025 05:36:55 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/class-wp-bootstrap-navwalker.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/functions.php on line 429
+[19-Jun-2025 10:27:44 UTC] PHP Fatal error:  Uncaught Error: Object of class WP_Block_Template could not be converted to string in /home/myprojec/public_html/development1/telesto/wp-includes/formatting.php:1096
+Stack trace:
+#0 /home/myprojec/public_html/development1/telesto/wp-includes/formatting.php(4664): wp_check_invalid_utf8(Object(WP_Block_Template))
+#1 /home/myprojec/public_html/development1/telesto/wp-content/plugins/advanced-custom-fields-pro-main/includes/acf-input-functions.php(451): esc_html(Object(WP_Block_Template))
+#2 /home/myprojec/public_html/development1/telesto/wp-content/plugins/advanced-custom-fields-pro-main/includes/acf-input-functions.php(436): acf_walk_select_input(Array, Array, 1)
+#3 /home/myprojec/public_html/development1/telesto/wp-content/plugins/advanced-custom-fields-pro-main/includes/acf-input-functions.php(402): acf_walk_select_input(Array, Array)
+#4 /home/myprojec/public_html/development1/telesto/wp-content/plugins/advanced-custom-fields-pro-main/includes/acf-input-functions.php(382): acf_get_select_input(Array)
+#5 /home in /home/myprojec/public_html/development1/telesto/wp-includes/formatting.php on line 1096
+[19-Jun-2025 12:35:19 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mb_strtolower() in /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/vendor-prefixed/nesbot/carbon/src/Carbon/Traits/Date.php:2084
+Stack trace:
+#0 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/vendor-prefixed/nesbot/carbon/src/Carbon/Traits/Date.php(2057): MailPoetVendor\Carbon\Carbon::singularUnit()
+#1 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/vendor-prefixed/nesbot/carbon/src/Carbon/Traits/Date.php(2207): MailPoetVendor\Carbon\Carbon->setUnit()
+#2 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/lib/Util/Installation.php(29): MailPoetVendor\Carbon\Carbon->__call()
+#3 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/lib/AdminPages/PageRenderer.php(163): MailPoet\Util\Installation->isNewInstallation()
+#4 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/lib/AdminPages/Pages/Forms.php(57): MailPoet\AdminPages\PageRenderer->displayPage()
+#5 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/lib/Config/Menu.php(624): MailPoet\AdminPages\Pages\Forms->render()
+#6 /home/myprojec/public_html/development1/telesto/wp-includes/class-wp-hook.php(324): MailPoet\Config\Menu->forms()
+#7 /home/myprojec/public_html/development1/telesto/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#8 /home/myprojec/public_html/development1/telesto/wp-includes/plugin.php(517): WP_Hook->do_action()
+#9 /home/myprojec/public_html/development1/telesto/wp-admin/admin.php(260): do_action()
+#10 {main}
+  thrown in /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/vendor-prefixed/nesbot/carbon/src/Carbon/Traits/Date.php on line 2084
+[19-Jun-2025 12:36:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mb_strtolower() in /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/vendor-prefixed/nesbot/carbon/src/Carbon/Traits/Date.php:2084
+Stack trace:
+#0 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/vendor-prefixed/nesbot/carbon/src/Carbon/Traits/Date.php(2057): MailPoetVendor\Carbon\Carbon::singularUnit()
+#1 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/vendor-prefixed/nesbot/carbon/src/Carbon/Traits/Date.php(2207): MailPoetVendor\Carbon\Carbon->setUnit()
+#2 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/lib/Util/Installation.php(29): MailPoetVendor\Carbon\Carbon->__call()
+#3 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/lib/AdminPages/PageRenderer.php(163): MailPoet\Util\Installation->isNewInstallation()
+#4 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/lib/AdminPages/Pages/Forms.php(57): MailPoet\AdminPages\PageRenderer->displayPage()
+#5 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/lib/Config/Menu.php(624): MailPoet\AdminPages\Pages\Forms->render()
+#6 /home/myprojec/public_html/development1/telesto/wp-includes/class-wp-hook.php(324): MailPoet\Config\Menu->forms()
+#7 /home/myprojec/public_html/development1/telesto/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#8 /home/myprojec/public_html/development1/telesto/wp-includes/plugin.php(517): WP_Hook->do_action()
+#9 /home/myprojec/public_html/development1/telesto/wp-admin/admin.php(260): do_action()
+#10 {main}
+  thrown in /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/vendor-prefixed/nesbot/carbon/src/Carbon/Traits/Date.php on line 2084

@@ -8,25 +8,22 @@
         <div class="row justify-content-center">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <div class="service-content-main wow fadeInUp policy-content-main">
-                   <?php
-$background_banner = get_field('background_banner');
-if ($background_banner) :
-    // Output the image using the 'url' and 'alt' from the image array
-?>
-    <img src="<?php echo esc_url($background_banner['url']); ?>" class="img-fluid" alt="<?php echo esc_attr($background_banner['alt']); ?>">
-<?php endif; ?>
+                   
+<img src="<?php echo esc_url(get_the_post_thumbnail_url(null, 'full')); ?>" class="img-fluid" alt="<?php the_title_attribute(); ?>">
+
+
 
                     <div class="service-detial-span">
-                        <span>Automation</span>
+            <?php
+$categories = get_the_category();
+if ( ! empty( $categories ) ) {
+    echo '<span>' . esc_html( $categories[0]->name ) . '</span>';
+}
+?>
+
                     </div>
-                    <h2><?php the_field('first_heading'); ?></h2>
-                    <p><?php the_field('first_subheading'); ?></p>
-                    <h3><?php the_field('second_heading'); ?></h3>
-                    <p><?php the_field('second_subheading'); ?></p>
-                    <h4><?php the_field('third_heading'); ?></h4>
-                    <p><?php the_field('third_subheading'); ?></p>
-                    <h3><?php the_field('fourth_heading'); ?></h3>
-                    <p><?php the_field('fourth_subheading'); ?></p>
+                    <h2><?php the_title(); ?></h2>
+                    <?php the_content(); ?>
                 </div>
                 
                
@@ -43,7 +40,7 @@ if ($background_banner) :
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="heading-pnel mb-5 wow fadeInUp">
-                            <h2><?php the_field('blog_heading'); ?></h2>
+                            <h2><?php the_field('recent_blogs_heading'); ?></h2>
                         </div>
                     </div>
                 </div>
@@ -60,13 +57,13 @@ if ($background_banner) :
         while ($blog_query->have_posts()):
             $blog_query->the_post();
 
-            // Retrieve the featured image URL
+            
             $featured_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
             if (!$featured_image) {
                 $featured_image = get_template_directory_uri() . '/assets/images/blog/placeholder.png';
             }
 
-            // Retrieve the right arrow image from ACF (optional)
+            
             $right_arrow = get_field('right_arrow_');
             ?>
             <div class="item">
@@ -78,7 +75,7 @@ if ($background_banner) :
                     <div class="Blog-Items-Content">
                         <h4><?php the_title(); ?></h4>
                         <a href="<?php the_permalink(); ?>" class="learlink">
-                            Learn More
+                          <?php the_field('learn_more_label_heading'); ?>
                             <?php if (!empty($right_arrow['url'])): ?>
                                 <img src="<?php echo esc_url($right_arrow['url']); ?>" alt="<?php echo esc_attr($right_arrow['alt']); ?>" />
                             <?php else: ?>

@@ -4,13 +4,7 @@
  get_header(); ?>
 
  <!-- Comman banner section start -->
-    <?php
-// Get image array from ACF field
-$banner = get_field('blog_banner');
-
-// Check if image exists and get URL
-$banner_url = $banner ? $banner['url'] : get_template_directory_uri() . '/assets/images/blog-img.jpg';
-?>
+  
 
 <section id="cm-banner">
 
@@ -32,6 +26,9 @@ $banner_url = $banner ? $banner['url'] : get_template_directory_uri() . '/assets
     </div>
 </section>
 <!-- Comman banner section end -->
+
+
+
 <!-- Blog section start -->
 <section class="space pt-0">
             <div class="container">
@@ -74,14 +71,12 @@ $args = array(
                             </li>
                             <li>
                                   <a href="<?php the_permalink(); ?>" class="learlink">
-                    <?php the_field('learn_more_label_heading'); ?>
+                    <?php the_field('recent_blogs_button_text'); ?>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/right-arrow.svg" alt="right arrow" />
                 </a>
                             </li>
                         </ul>
-                   
-              
-                        
+                  
                     </div>
             </div>
         </div>
@@ -95,21 +90,14 @@ else :
     echo '<p>No posts found.</p>';
 endif;
 ?>
-                    
-
-                    
-
-                    
-
-                    
-
+           
                 </div>
 <div class="row mt-4">
     <div class="col-12">
         <div class="pagination">
             <ul>
                 <?php
-                $big = 999999999; // an unlikely integer
+                $big = 999999999; 
 
                 $pagination = paginate_links(array(
                     'base'      => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
@@ -144,10 +132,6 @@ endif;
     </div>
 </section>
     
-
-
-
-
 
 
   <?php get_footer(); ?>

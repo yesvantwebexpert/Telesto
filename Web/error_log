@@ -6804,3 +6804,196 @@
 [29-May-2025 07:42:16 UTC] PHP Notice:  Array to string conversion in /home/myprojec/public_html/development1/telesto/wp-content/plugins/advanced-custom-fields-pro-main/includes/api/api-template.php on line 115
 [29-May-2025 07:44:21 UTC] PHP Notice:  Array to string conversion in /home/myprojec/public_html/development1/telesto/wp-content/plugins/advanced-custom-fields-pro-main/includes/api/api-template.php on line 99
 [29-May-2025 07:44:21 UTC] PHP Notice:  Array to string conversion in /home/myprojec/public_html/development1/telesto/wp-content/plugins/advanced-custom-fields-pro-main/includes/api/api-template.php on line 115
+[09-Jun-2025 12:29:01 UTC] PHP Parse error:  syntax error, unexpected 'endwhile' (T_ENDWHILE), expecting elseif (T_ELSEIF) or else (T_ELSE) or endif (T_ENDIF) in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 109
+[10-Jun-2025 05:36:01 UTC] PHP Fatal error:  Uncaught Error: Class 'WP_Bootstrap_Navwalker' not found in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/header.php:30
+Stack trace:
+#0 /home/myprojec/public_html/development1/telesto/wp-includes/template.php(810): require_once()
+#1 /home/myprojec/public_html/development1/telesto/wp-includes/template.php(745): load_template('/home/myprojec/...', true, Array)
+#2 /home/myprojec/public_html/development1/telesto/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#3 /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/front-page.php(3): get_header()
+#4 /home/myprojec/public_html/development1/telesto/wp-includes/template-loader.php(106): include('/home/myprojec/...')
+#5 /home/myprojec/public_html/development1/telesto/wp-blog-header.php(19): require_once('/home/myprojec/...')
+#6 /home/myprojec/public_html/development1/telesto/index.php(17): require('/home/myprojec/...')
+#7 {main}
+  thrown in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/header.php on line 30
+[11-Jun-2025 11:42:47 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/myprojec/public_html/development1/telesto/wp-content/plugins/add-on-contact-form-7-mailpoet/includes/class-mailpoet-cf7-integration.php on line 126
+[11-Jun-2025 11:42:55 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/myprojec/public_html/development1/telesto/wp-content/plugins/add-on-contact-form-7-mailpoet/includes/class-mailpoet-cf7-integration.php on line 126
+[11-Jun-2025 11:46:46 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/myprojec/public_html/development1/telesto/wp-content/plugins/add-on-contact-form-7-mailpoet/includes/class-mailpoet-cf7-integration.php on line 126
+[11-Jun-2025 11:48:30 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/myprojec/public_html/development1/telesto/wp-content/plugins/add-on-contact-form-7-mailpoet/includes/class-mailpoet-cf7-integration.php on line 126
+[11-Jun-2025 11:50:51 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/myprojec/public_html/development1/telesto/wp-content/plugins/add-on-contact-form-7-mailpoet/includes/class-mailpoet-cf7-integration.php on line 126
+[11-Jun-2025 11:53:18 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/myprojec/public_html/development1/telesto/wp-content/plugins/add-on-contact-form-7-mailpoet/includes/class-mailpoet-cf7-integration.php on line 126
+[11-Jun-2025 11:53:18 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/myprojec/public_html/development1/telesto/wp-content/plugins/add-on-contact-form-7-mailpoet/includes/class-mailpoet-cf7-integration.php on line 126
+[11-Jun-2025 11:56:14 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/myprojec/public_html/development1/telesto/wp-content/plugins/add-on-contact-form-7-mailpoet/includes/class-mailpoet-cf7-integration.php on line 126
+[11-Jun-2025 11:56:14 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/myprojec/public_html/development1/telesto/wp-content/plugins/add-on-contact-form-7-mailpoet/includes/class-mailpoet-cf7-integration.php on line 126
+[16-Jun-2025 12:26:40 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/footer.php on line 38
+[16-Jun-2025 12:45:56 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/footer.php on line 27
+[18-Jun-2025 07:44:35 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/header.php on line 11
+[18-Jun-2025 12:08:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_kse_post() in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/About us.php:86
+Stack trace:
+#0 /home/myprojec/public_html/development1/telesto/wp-includes/template-loader.php(106): include()
+#1 /home/myprojec/public_html/development1/telesto/wp-blog-header.php(19): require_once('/home/myprojec/...')
+#2 /home/myprojec/public_html/development1/telesto/index.php(17): require('/home/myprojec/...')
+#3 {main}
+  thrown in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/About us.php on line 86
+[18-Jun-2025 13:36:12 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE), expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 8
+[18-Jun-2025 13:53:42 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 83
+[19-Jun-2025 07:21:39 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 07:21:45 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 07:38:00 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 07:40:04 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 07:41:49 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 07:45:18 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 07:52:38 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 09:24:17 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 09:43:34 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 09:55:14 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/contactus.php on line 95
+[19-Jun-2025 09:56:16 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/contactus.php on line 95
+[19-Jun-2025 09:56:18 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/contactus.php on line 95
+[19-Jun-2025 09:56:38 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/contactus.php on line 95
+[19-Jun-2025 09:56:39 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/contactus.php on line 95
+[19-Jun-2025 09:56:39 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/contactus.php on line 95
+[19-Jun-2025 09:56:39 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/contactus.php on line 95
+[19-Jun-2025 09:57:47 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/contactus.php on line 95
+[19-Jun-2025 09:57:49 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/contactus.php on line 95
+[19-Jun-2025 09:57:50 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/contactus.php on line 95
+[19-Jun-2025 09:57:51 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/contactus.php on line 95
+[19-Jun-2025 09:57:51 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/contactus.php on line 95
+[19-Jun-2025 09:57:51 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/contactus.php on line 95
+[19-Jun-2025 10:22:37 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 10:25:15 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 10:38:31 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 10:43:52 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 10:43:59 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 10:44:07 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 10:44:09 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 10:44:21 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 10:44:27 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 10:45:05 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 10:46:05 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 10:47:18 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 10:48:08 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 10:53:47 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 11:04:21 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 11:04:33 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 11:04:44 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 11:04:50 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 11:10:53 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 11:11:19 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 11:13:05 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 11:14:35 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 11:14:40 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 11:39:28 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/blogs.php on line 12
+[19-Jun-2025 11:42:31 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[19-Jun-2025 11:46:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function the_heading() in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/front-page.php:222
+Stack trace:
+#0 /home/myprojec/public_html/development1/telesto/wp-includes/template-loader.php(106): include()
+#1 /home/myprojec/public_html/development1/telesto/wp-blog-header.php(19): require_once('/home/myprojec/...')
+#2 /home/myprojec/public_html/development1/telesto/index.php(17): require('/home/myprojec/...')
+#3 {main}
+  thrown in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/front-page.php on line 222
+[19-Jun-2025 11:47:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function the_heading() in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/front-page.php:222
+Stack trace:
+#0 /home/myprojec/public_html/development1/telesto/wp-includes/template-loader.php(106): include()
+#1 /home/myprojec/public_html/development1/telesto/wp-blog-header.php(19): require_once('/home/myprojec/...')
+#2 /home/myprojec/public_html/development1/telesto/index.php(17): require('/home/myprojec/...')
+#3 {main}
+  thrown in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/front-page.php on line 222
+[19-Jun-2025 12:36:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mb_strtolower() in /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/vendor-prefixed/nesbot/carbon/src/Carbon/Traits/Date.php:2084
+Stack trace:
+#0 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/vendor-prefixed/nesbot/carbon/src/Carbon/Traits/Date.php(2057): MailPoetVendor\Carbon\Carbon::singularUnit()
+#1 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/vendor-prefixed/nesbot/carbon/src/Carbon/Traits/Date.php(2207): MailPoetVendor\Carbon\Carbon->setUnit()
+#2 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/lib/Subscribers/SubscribersRepository.php(692): MailPoetVendor\Carbon\Carbon->__call()
+#3 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/lib/Subscribers/SubscribersRepository.php(427): MailPoet\Subscribers\SubscribersRepository->getCurrentDateTime()
+#4 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/lib/Statistics/Track/SubscriberActivityTracker.php(98): MailPoet\Subscribers\SubscribersRepository->maybeUpdateLastPageViewAt()
+#5 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/lib/Statistics/Track/SubscriberActivityTracker.php(85): MailPoet\Statistics\Track\SubscriberActivityTracker->processTracking()
+#6 /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/lib/Config/Initializer.php(363): MailPoet\Statistics\Track\SubscriberActivityTracker->trackActivity()
+#7 /home/myprojec/public_html/development1/telesto/wp-includes/class-wp-hook.php(324): MailPoet\Config\Initializer->initialize()
+#8 /home/myprojec/public_html/development1/telesto/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#9 /home/myprojec/public_html/development1/telesto/wp-includes/plugin.php(517): WP_Hook->do_action()
+#10 /home/myprojec/public_html/development1/telesto/wp-settings.php(727): do_action()
+#11 /home/myprojec/public_html/development1/telesto/wp-config.php(103): require_once('/home/myprojec/...')
+#12 /home/myprojec/public_html/development1/telesto/wp-load.php(50): require_once('/home/myprojec/...')
+#13 /home/myprojec/public_html/development1/telesto/wp-blog-header.php(13): require_once('/home/myprojec/...')
+#14 /home/myprojec/public_html/development1/telesto/index.php(17): require('/home/myprojec/...')
+#15 {main}
+  thrown in /home/myprojec/public_html/development1/telesto/wp-content/plugins/mailpoet/vendor-prefixed/nesbot/carbon/src/Carbon/Traits/Date.php on line 2084
+[19-Jun-2025 13:05:27 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[20-Jun-2025 04:49:02 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[20-Jun-2025 04:49:24 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[20-Jun-2025 08:23:06 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[20-Jun-2025 10:19:23 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[20-Jun-2025 10:23:24 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[20-Jun-2025 10:23:33 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[20-Jun-2025 10:45:22 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[20-Jun-2025 11:05:54 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[20-Jun-2025 13:06:23 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[20-Jun-2025 17:02:23 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 06:43:21 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 06:43:33 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 06:43:43 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 07:08:46 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 07:14:08 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 07:15:45 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 07:15:51 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 07:33:13 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 07:43:00 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 09:49:30 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 09:52:13 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 09:52:20 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 09:57:35 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 10:01:55 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 12:20:26 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[23-Jun-2025 23:23:56 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[24-Jun-2025 06:25:27 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[24-Jun-2025 06:54:52 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[24-Jun-2025 06:56:30 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[25-Jun-2025 05:46:54 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[25-Jun-2025 05:49:58 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[27-Jun-2025 06:12:49 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[27-Jun-2025 06:26:27 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[30-Jun-2025 11:33:43 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[30-Jun-2025 11:33:59 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[30-Jun-2025 11:34:08 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[30-Jun-2025 11:34:19 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[30-Jun-2025 11:34:20 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[30-Jun-2025 11:35:15 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[30-Jun-2025 11:35:24 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[30-Jun-2025 11:41:15 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[30-Jun-2025 11:43:59 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[30-Jun-2025 14:00:19 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[01-Jul-2025 03:43:42 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[01-Jul-2025 03:43:53 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[01-Jul-2025 09:31:10 UTC] PHP Warning:  ltrim() expects parameter 1 to be string, array given in /home/myprojec/public_html/development1/telesto/wp-includes/formatting.php on line 4476
+[01-Jul-2025 09:31:12 UTC] PHP Warning:  ltrim() expects parameter 1 to be string, array given in /home/myprojec/public_html/development1/telesto/wp-includes/formatting.php on line 4476
+[01-Jul-2025 09:31:16 UTC] PHP Warning:  ltrim() expects parameter 1 to be string, array given in /home/myprojec/public_html/development1/telesto/wp-includes/formatting.php on line 4476
+[01-Jul-2025 09:31:21 UTC] PHP Warning:  ltrim() expects parameter 1 to be string, array given in /home/myprojec/public_html/development1/telesto/wp-includes/formatting.php on line 4476
+[01-Jul-2025 09:46:10 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function wp_kses(), 1 passed in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/single-casestudies.php on line 272 and at least 2 expected in /home/myprojec/public_html/development1/telesto/wp-includes/kses.php:747
+Stack trace:
+#0 /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/single-casestudies.php(272): wp_kses('At the end of t...')
+#1 /home/myprojec/public_html/development1/telesto/wp-includes/template-loader.php(106): include('/home/myprojec/...')
+#2 /home/myprojec/public_html/development1/telesto/wp-blog-header.php(19): require_once('/home/myprojec/...')
+#3 /home/myprojec/public_html/development1/telesto/index.php(17): require('/home/myprojec/...')
+#4 {main}
+  thrown in /home/myprojec/public_html/development1/telesto/wp-includes/kses.php on line 747
+[01-Jul-2025 13:23:49 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[01-Jul-2025 13:51:30 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[06-Jul-2025 09:56:32 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[06-Jul-2025 09:57:58 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[06-Jul-2025 09:58:13 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[06-Jul-2025 10:16:59 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[06-Jul-2025 11:07:15 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[06-Jul-2025 11:07:17 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[11-Jul-2025 15:45:24 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[11-Jul-2025 23:35:56 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[14-Jul-2025 09:50:01 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[17-Jul-2025 06:47:44 UTC] Cron reschedule event error for hook: action_scheduler_run_queue, Error code: invalid_schedule, Error message: Event schedule does not exist., Data: {"schedule":"every_minute","args":["WP Cron"],"interval":60}
+[17-Jul-2025 07:53:49 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[17-Jul-2025 08:01:27 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[17-Jul-2025 08:02:56 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[17-Jul-2025 09:57:55 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[17-Jul-2025 09:59:35 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[17-Jul-2025 10:14:39 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[17-Jul-2025 10:30:56 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[17-Jul-2025 10:30:59 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[17-Jul-2025 10:31:07 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11
+[18-Jul-2025 05:22:52 UTC] PHP Warning:  Illegal string offset 'url' in /home/myprojec/public_html/development1/telesto/wp-content/themes/telesto/casetudies.php on line 11

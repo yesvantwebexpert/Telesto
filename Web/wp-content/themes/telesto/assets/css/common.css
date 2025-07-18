@@ -380,7 +380,7 @@ body a:hover {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 99;
+    z-index: 999;
     
 }
 .header.js-header.darkHeader {
@@ -487,11 +487,8 @@ header .green-btn span {
  justify-content: center;
  margin-right: 6px;
 }
-.right-head {
-
-}
+.navbar-light .navbar-nav > li{margin:0 19px;}
 .navbar-light .navbar-nav > li > a {
-    margin-left: 38px !important;
     font-style: normal;
     color: #fff;
     position: relative;
@@ -737,6 +734,7 @@ section.offer-sec {
     padding: 35px 25px;
     text-align: left;
     background: #000;
+    margin-bottom: 30px;
 }
 
 .offer_card_caption img {
@@ -1642,7 +1640,7 @@ ul.real-content.heading-panel {
 .FooterItems h4 {
     font-weight: 500;
     font-size: 14px;
-    line-height: 26px;
+    line-height: 14px;
     color: #fff;
 }
 
@@ -1654,7 +1652,7 @@ ul.real-content.heading-panel {
 }
 
 .FooterItems {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .footerLogo {
@@ -1918,6 +1916,13 @@ footer.MainFoorter {
     margin-bottom: 30px;
 }
 
+.ValuesItems img {
+    margin-bottom: 20px;
+    width: 50px;
+    height: 41px;
+    object-fit: contain;
+}
+
 .Blog-Items .Blog-Items-image img {
     width: 100%;
     max-width: 237px;
@@ -1970,7 +1975,7 @@ footer.MainFoorter {
     background-repeat: no-repeat;
     width: 100%;
     position: relative;
-    background-position: center;
+    background-position: right;
     padding: 100px 0px;
     z-index: 9;
     margin-top: 82px;
@@ -2349,8 +2354,8 @@ margin-top: 15px;
     padding: 124px 0px;
 }
 .contact-text-part {
-    margin-top: 58px;
-    max-width: 340px;
+    margin-top: 0px;
+    max-width: 360px;
     width: 100%;
     position: relative;
     margin-bottom: 100px;
@@ -2455,6 +2460,7 @@ margin-top: 15px;
     justify-content: center;
     border-radius: 50%;
     position: relative;
+	flex:0 0 54px;
 }
 .icon-back:after{
     position: absolute;
@@ -2499,9 +2505,10 @@ margin-top: 15px;
 .service-content-main img {
     width: 100%; 
     border-top-right-radius: 54px;
-    height: 400px;
+    height: 500px;
     object-fit: cover;
     margin-bottom: 46px;
+        object-position: top;
 }
 .service-detial-span{
     border-width: 1px;
@@ -2541,6 +2548,7 @@ margin-top: 15px;
     font-size: 14px;
     line-height: 22px;
     color: #F5F7FA;
+    margin-bottom: 15px;
 }
 .service-content-list{
     position: relative;
@@ -3133,9 +3141,11 @@ body {
 }
 
 .case-studiesBox .offer_card_caption h3 {
-    font-size: 16px;
+        font-size: 14px;
     padding-top: 10px;
-    max-width: 190px;
+    max-width: 100%;
+    line-height: 1.5;
+    padding-bottom: 0;
 }
 
 .case-studiesBox  .offer_card_caption{
@@ -3526,13 +3536,16 @@ margin-bottom: 30px;
 #service-slider{
     margin-top: 42px;
 }
-#service-slider .owl-nav.disabled {
+#service-slider .owl-nav {
     display: flex;
     position: absolute;
     right: 0%;
     justify-content: center;
     top: -23% !important;
     transform: translateX(46%);
+}
+.owl-nav.disabled { 
+    display: none !important;
 }
 #service-slider button.owl-prev{
     margin-right: 24px;
@@ -3807,4 +3820,140 @@ color: #fff;
     font-weight: 600;
     background: #ff000030;
     border-width: 1px;
+}
+
+#Real-Slider button.owl-prev {
+    margin-right: 24px;
+    width: 37px;
+    height: 37px;
+    transition: all 0.8s !important;
+    border-radius: 50%;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-image: url(../images/left-arrow-white.svg) !important;
+}
+#Real-Slider button.owl-next {
+    width: 37px;
+    height: 37px;
+    transition: all 0.8s !important;
+    border-radius: 50%;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-image: url(../images/right-arrow-white.svg) !important;
+	margin:0;
+}
+#Real-Slider .owl-nav {
+    display: flex;
+    position: absolute;
+    right: 20%;
+    justify-content: center;
+    top: -125px !important;
+    width: 110px;
+}
+#Real-Slider button.owl-prev:hover {
+    background: #0084FF;
+}
+
+.read-more-content {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.read-more-container.expanded .read-more-content {
+  display: block;
+}
+
+.read-more-toggle {
+  display: block;
+  margin-top: 20px;
+  color: #007bff;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+
+
+
+
+body #mailpoet_form_1 form.mailpoet_form {
+    padding: 0;
+    position: relative;
+}
+
+#mailpoet_form_1 .mailpoet_paragraph {
+	margin-bottom:0 !important;
+}
+
+#mailpoet_form_1 .mailpoet_submit {
+    position: absolute;
+    width: 40px !important;
+    text-indent: -110px;
+    white-space: nowrap;
+    right: 0;
+    top: 0;
+    height: 30px;
+    background: #00FF99;
+    border-top-right-radius: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 12px;
+    background-image: url('https://www.myprojectdemonstration.com/development1/telesto/wp-content/uploads/2025/06/foot-arrow.svg');
+}
+
+.navbar-nav > li.menu-item-has-children > a:before {
+	content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 7px solid rgba(0, 255, 153, 1);
+    position: absolute;
+    right: -20px;
+    top: 54%;
+    transform: translatey(-50%);
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+    .mobmenu-right-panel {
+        background-color: #000000;
+        width: 100% !important;
+    }
+	.mobmenu-right-panel li, .rightmbottom, .rightmtop {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
+.FooterItems h4 {
+    display: flex;
+    align-items: center;
+}
+
+.FooterItems h4 > img {
+    width: 18px;
+    margin-right: 10px;
+}
+.TheChallenges .heading-pnel h2 ~ p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+.fifth-section-text ul li {
+    margin-bottom: 5px;
+}
+
+.fifth-section-text ul {
+    padding-left: 40px;
+}
+.read-more-content ul li {
+    padding: 0 !important;
+}
+
+.read-more-content ul {
+    margin-bottom: 15px;
 }

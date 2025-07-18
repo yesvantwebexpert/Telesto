@@ -121,7 +121,7 @@ $('.Count').each(function () {
 
    // Owl Carousel: Blog Slider
   $('#Blog-Slider').owlCarousel({
-    margin: 0,
+    margin: 16,
     items: 1,
     dots: false,
     loop: true,
@@ -305,3 +305,14 @@ function onResize() {
     requestId = requestAnimationFrame(updateScroller);
   }
 }
+
+
+
+
+
+
+
+
+
+
+

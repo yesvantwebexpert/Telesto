@@ -8,7 +8,7 @@
                 <div class="service-content-main wow fadeInUp afterNone pb-5">
 
                     <?php 
-                    // Featured image
+                   
                     $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
                     if ($featured_img_url): ?>
                         <img src="<?php echo esc_url($featured_img_url); ?>" class="img-fluid" alt="<?php the_title_attribute(); ?>" />
@@ -29,27 +29,24 @@
 
                     <h2><?php the_title(); ?></h2>
 
-                    <?php if ($title_subheading = get_field('title_subheading')): ?>
-                        <h2><?php echo esc_html($title_subheading); ?></h2>
-                    <?php endif; ?>
-
-                    <?php if (has_excerpt()): ?>
-                        <p><?php echo get_the_excerpt(); ?></p>
-                    <?php endif; ?>
-
-                    <?php if ($project_heading = get_field('project_heading')): ?>
-                        <h2><?php echo esc_html($project_heading); ?></h2>
-                    <?php endif; ?>
+					<?php $project_overview_text = get_field('project_overview_text'); ?>
+<?php if ($project_overview_text): ?>
+    <?php echo wp_kses_post($project_overview_text); ?>
+<?php endif; ?>
+                    
 
                 </div>
-
+				
                 <!-- Tech Features -->
-                <?php if (have_rows('tech_feature')): ?>
+				
+
+                <?php if (have_rows('project_details')): ?>
                     <div class="case-studiesBox">
+						 <h2><?php the_field('cards_main_heading'); ?></h2>
                         <div class="row">
-                            <?php while (have_rows('tech_feature')): the_row(); 
-                                $heading = get_sub_field('tech_heading');
-                                $description = get_sub_field('tech_description');
+                            <?php while (have_rows('project_details')): the_row(); 
+                                $heading = get_sub_field('heading');
+                                $description = get_sub_field('description');
                                 if ($heading || $description): ?>
                                     <div class="col-lg-3 col-md-6 col-12">
                                         <div class="offer_card_gredient wow fadeInUp">
@@ -68,32 +65,33 @@
                         </div>
                     </div>
                 <?php endif; ?>
+				
 
-                <!-- After Image -->
+                
                 <div class="AfterBg mt-5 mb-5">
                     <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/after.png" class="img-fluid" alt="After Image" />
                 </div>
 
                 <!-- The Challenges -->
-                <?php if ($the_challenges = get_field('the_challenges')): ?>
+                <?php if ($the_challenges = get_field('second_section_heading')): ?>
                     <div class="TheChallenges mb-5">
                         <div class="row">
                             <div class="col-12">
                                 <div class="heading-pnel real-caption wow fadeInUp mb-3 pb-3">
                                     <h2><?php echo esc_html($the_challenges); ?></h2>
-                                    <?php if ($challenge_subheading2 = get_field('challenge_subheading2')): ?>
-                                        <p><?php echo esc_html($challenge_subheading2); ?></p>
+                                    <?php if ($challenge_subheading2 = get_field('second_section_subheading')): ?>
+                                       <?php echo wp_kses_post($challenge_subheading2); ?>
                                     <?php endif; ?>
                                 </div>
                             </div>
                         </div>
 
-                        <?php if (have_rows('challenge_feature')): ?>
+                        <?php if (have_rows('second_section_cards')): ?>
                             <div class="row">
-                                <?php while (have_rows('challenge_feature')): the_row(); 
-                                    $image = get_sub_field('challenge_image');
-                                    $heading = get_sub_field('challenge_heading');
-                                    $subheading = get_sub_field('challenge_subheading');
+                                <?php while (have_rows('second_section_cards')): the_row(); 
+                                    $image = get_sub_field('second_section_card_image');
+                                    $heading = get_sub_field('second_section_card_heading');
+                                    $subheading = get_sub_field('second_section_card_text');
                                 ?>
                                     <div class="col-md-6">
                                         <div class="offer_card_gredient wow fadeInUp NewGridCard">
@@ -120,33 +118,33 @@
                     </div>
                 <?php endif; ?>
 
-                <?php if ($challenge_subheading3 = get_field('challenge_subheading3')): ?>
+                <?php if ($challenge_subheading3 = get_field('second_section_last_text')): ?>
                     <div class="heading-pnel real-caption wow fadeInUp mb-3 pb-3">
-                        <p><?php echo wp_kses_post($challenge_subheading3); ?></p>
+                        <?php echo wp_kses_post($challenge_subheading3); ?>
                     </div>
                 <?php endif; ?>
 
                 <!-- The Solutions -->
-                <?php if ($the_solutions = get_field('the_solutions')): ?>
+                <?php if ($the_solutions = get_field('third_section_heading')): ?>
                     <div class="TheChallenges mb-5 SolutionsBox">
                         <div class="row">
                             <div class="col-12">
                                 <div class="heading-pnel real-caption wow fadeInUp mb-3 pb-3">
                                     <h2><?php echo esc_html($the_solutions); ?></h2>
-                                    <?php if ($solution_subheading1 = get_field('solution_subheading1')): ?>
-                                        <p><?php echo esc_html($solution_subheading1); ?></p>
+                                    <?php if ($solution_subheading1 = get_field('third_section_text')): ?>
+                                        <?php echo wp_kses_post($solution_subheading1); ?>
                                     <?php endif; ?>
-                                    <?php if ($solution_subheading2 = get_field('solution_subheading2')): ?>
+                                    <?php if ($solution_subheading2 = get_field('third_section_subheading')): ?>
                                         <h2><?php echo esc_html($solution_subheading2); ?></h2>
                                     <?php endif; ?>
                                 </div>
                             </div>
                         </div>
 
-                        <?php if (have_rows('solution_feature')): ?>
+                        <?php if (have_rows('third_section_cards')): ?>
                             <div class="row">
-                                <?php while (have_rows('solution_feature')): the_row(); 
-                                    $image = get_sub_field('solution_image');
+                                <?php while (have_rows('third_section_cards')): the_row(); 
+                                    $image = get_sub_field('third_section_card_image');
                                     $heading = get_sub_field('solution_heading');
                                     $subheading = get_sub_field('solution_subheading');
                                 ?>
@@ -160,7 +158,17 @@
                                                     <h3><?php echo esc_html($heading); ?></h3>
                                                 <?php endif; ?>
                                                 <?php if ($subheading): ?>
-                                                    <p><?php echo wp_kses_post($subheading); ?></p>
+                                                    <?php
+$full_html = get_sub_field('solution_subheading'); 
+$full_text = strip_tags($full_html);
+?>
+<div class="read-more-container">
+	<div class="read-more-content">
+		<?php echo wp_kses_post($full_html); ?>
+</div>
+  <a href="#" class="read-more-toggle">See More</a>
+</div>
+
                                                 <?php endif; ?>
                                             </div>
                                         </div>
@@ -171,9 +179,9 @@
                     </div>
                 <?php endif; ?>
 
-                <?php if ($solution_subheading3 = get_field('solution_subheading3')): ?>
+                <?php if ($solution_subheading3 = get_field('third_section_last_text')): ?>
                     <div class="heading-pnel real-caption wow fadeInUp mb-3 pb-3">
-                        <p><?php echo wp_kses_post($solution_subheading3); ?></p>
+                        <?php echo wp_kses_post($solution_subheading3); ?>
                     </div>
                 <?php endif; ?>
 
@@ -183,7 +191,7 @@
                 </div>
 
                 <!-- Impact & Results -->
-                <?php if ($impact_results = get_field('impact_&_results')): ?>
+                <?php if ($impact_results = get_field('fourth_section_heading')): ?>
                     <div class="TheChallenges mb-5 SolutionsBox ImpactResults">
                         <div class="row">
                             <div class="col-12">
@@ -199,17 +207,15 @@
 
                                     <div class="col-md-3">
                                         <div class="happy-client-card wow fadeInUp">
-                                            <?php if ($cost_heading = get_field('cost_heading')): ?>
+                                            <?php if ($cost_heading = get_field('fourth_section_counter_heading')): ?>
                                                 <h2><?php echo esc_html($cost_heading); ?></h2>
                                             <?php endif; ?>
                                             <p>
                                                 <?php 
-                                                if ($cost_savings = get_field('cost_savings')) {
+                                                if ($cost_savings = get_field('fourth_section_counter_subheading')) {
                                                     echo esc_html($cost_savings) . '<br />';
                                                 }
-                                                if ($_time_saved = get_field('_time_saved')) {
-                                                    echo esc_html($_time_saved);
-                                                }
+                                                
                                                 ?>
                                             </p>
                                         </div>
@@ -217,10 +223,10 @@
 
                                     <div class="col-md-3">
                                         <div class="happy-client-card wow fadeInUp">
-                                            <?php if ($eighty_five = get_field('eighty_five')): ?>
+                                            <?php if ($eighty_five = get_field('counter_1')): ?>
                                                 <h2 class="Count"><?php echo esc_html($eighty_five); ?></h2><span>%</span>
                                             <?php endif; ?>
-                                            <?php if ($faster_calculations = get_field('faster_calculations')): ?>
+                                            <?php if ($faster_calculations = get_field('counter_1_text')): ?>
                                                 <p><?php echo esc_html($faster_calculations); ?></p>
                                             <?php endif; ?>
                                         </div>
@@ -228,10 +234,10 @@
 
                                     <div class="col-md-3">
                                         <div class="happy-client-card wow fadeInUp">
-                                            <?php if ($sixty = get_field('sixty')): ?>
+                                            <?php if ($sixty = get_field('counter_2')): ?>
                                                 <h2 class="Count"><?php echo esc_html($sixty); ?></h2><span>%</span>
                                             <?php endif; ?>
-                                            <?php if ($engineering_efficiency = get_field('engineering-efficiency')): ?>
+                                            <?php if ($engineering_efficiency = get_field('counter_2_text')): ?>
                                                 <p><?php echo esc_html($engineering_efficiency); ?></p>
                                             <?php endif; ?>
                                         </div>
@@ -239,10 +245,10 @@
 
                                     <div class="col-md-3">
                                         <div class="happy-client-card wow fadeInUp">
-                                            <?php if ($thirty = get_field('thirty')): ?>
+                                            <?php if ($thirty = get_field('counter_3')): ?>
                                                 <h2 class="Count"><?php echo esc_html($thirty); ?></h2><span>%</span>
                                             <?php endif; ?>
-                                            <?php if ($waste_reduction = get_field('waste_reduction')): ?>
+                                            <?php if ($waste_reduction = get_field('counter_3_text')): ?>
                                                 <p><?php echo esc_html($waste_reduction); ?></p>
                                             <?php endif; ?>
                                         </div>
@@ -253,6 +259,13 @@
                         </div>
                     </div>
                 <?php endif; ?>
+<?php 
+$fifth_section_text = get_field('fifth_section_text'); 
+if (trim($fifth_section_text)) : ?>
+    <div class="fifth-section-text">
+        <?php echo wpautop(wp_kses_post($fifth_section_text)); ?>
+    </div>
+<?php endif; ?>
 
                 <!-- Impact Features List -->
                 <?php if (have_rows('impact_feature')): ?>
@@ -260,15 +273,9 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="heading-pnel real-caption wow fadeInUp">
-                                    <h2><?php the_field('impact_&_results'); ?></h2>
-                                    <ul class="mb-0">
-                                        <?php while (have_rows('impact_feature')): the_row(); 
-                                            $impact_item = get_sub_field('impact_list');
-                                            if ($impact_item):
-                                                echo '<li>' . esc_html($impact_item) . '</li>';
-                                            endif;
-                                        endwhile; ?>
-                                    </ul>
+                                    <h2><?php the_field('fifth_section_heading'); ?></h2>
+								
+                                    
                                 </div>
                             </div>
                         </div>
@@ -292,23 +299,23 @@
                             <div class="SuperchargeContent">
                                 <div class="wow fadeInUp">
                                     <h3>
-                                        <?php if ($lets_get = get_field('let’s_get')) echo esc_html($lets_get); ?> 
+                                        <?php if ($lets_get = get_field('cta_heading')) echo esc_html($lets_get); ?> 
                                         <span class="Theme-Color">
-                                            <?php if ($started = get_field('started!')) echo esc_html($started); ?>
+                                            <?php if ($started = get_field('cta_highlighted_heading')) echo esc_html($started); ?>
                                         </span>
                                     </h3>
-                                    <?php if ($get_advanced = get_field('get_advanced')): ?>
+                                    <?php if ($get_advanced = get_field('cta_subheading')): ?>
                                         <h6><?php echo esc_html($get_advanced); ?></h6>
                                     <?php endif; ?>
-                                    <?php if ($ai_automation = get_field('ai_automation')): ?>
+                                    <?php if ($ai_automation = get_field('cta_text')): ?>
                                         <p><?php echo esc_html($ai_automation); ?></p>
                                     <?php endif; ?>
                                 </div>
 
                                 <div class="hero_link_btn">
                                     <?php
-                                    $first_link = get_field('banner_first_link');
-                                    $second_link = get_field('banner_second_link');
+                                    $first_link = get_field('cta_button_1');
+                                    $second_link = get_field('cta_button_2');
                                     if ($first_link): ?>
                                         <a class="blue-btn wow fadeInUp" style="animation-delay: 0.4s;"
                                            href="<?php echo esc_url($first_link['url']); ?>"
@@ -336,7 +343,7 @@
 
                         <div class="col-sm-4">
                             <?php 
-                            $image = get_field('mobile_image');
+                            $image = get_field('cta_image');
                             if (!empty($image)): ?>
                                 <img src="<?php echo esc_url($image['url']); ?>" class="img-fluid wow fadeInUp" alt="<?php echo esc_attr($image['alt']); ?>" />
                             <?php endif; ?>

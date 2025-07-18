@@ -1,25 +1,42 @@
- <footer class="MainFoorter">
+<footer class="MainFoorter">
             <div class="container">
                 <div class="FooterTop">
                     <div class="row justify-content-between">
                         <div class="col-lg-5 col-md-5">
                             <?php
-$image = get_field('footer_left_logo', 'option');
-if (!empty($image)): ?>
-    <div class="footerLogo">
-        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-    </div>
-<?php endif; ?>
-
+				$image = get_field('footer_left_logo', 'option');
+				if (!empty($image)): ?>
+					<div class="footerLogo">
+						<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+					</div>
+				<?php endif; ?>
+                         
+		<?php
+if ( have_rows('information_address', 'option') ):
+    while ( have_rows('information_address', 'option') ): the_row();
+		$flag = get_sub_field('flag');
+        $addr   = get_sub_field('addressnew1'); 
+        $detail = get_sub_field('address_detailnew2'); 
+        ?>
+        <div class="FooterItems">
+        
+			 
+            <?php if ( $addr ): ?>
+                <h4><img src="<?php echo esc_url($flag['url']); ?>"> <?php echo esc_html( $addr ); ?></h4>
+            <?php endif; ?>
+            <?php if ( $detail ): ?>
+                <p><?php echo wp_kses_post( nl2br( $detail ) ); ?></p>
+            <?php endif; ?>
+            
+        </div>
+        <?php
+    endwhile;
+endif;
+?>
+  <div class="MainBoxLinks">
                             <div class="FooterItems">
-                                <h4><?php echo get_field('address', 'options'); ?></h4>
-                                <p>
-                                    <?php echo get_field('address_detail', 'options'); ?>
-                                </p>
-                            </div>
-                            <div class="MainBoxLinks">
-                            <div class="FooterItems">
-                                <h4><?php echo get_field('contact_heading_', 'options'); ?></h4>
+                         
+                                <h4><?php echo get_field('contact_heading_', 'option'); ?></h4>
                                <?php 
 $link = get_field('contact_detail', 'option');
 
@@ -33,20 +50,19 @@ if( $link && is_array($link) ):
       <?php echo $title; ?>
     </a>
   </p>
-<?php endif; ?>
-
+<?php endif; ?> 
                             </div>
 
                             
                             <?php
-$link = get_field('talk_to_expert','options'); 
+$link = get_field('footer_button','option'); 
 
 if ($link):
     $link_url = $link['url'];
     $link_title = $link['title'];
     $link_target = $link['target'] ? $link['target'] : '_self';
 ?>
-    <a class="blue-btn blue_bfr_btn wow fadeInUp mt-4" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
+    <a class="blue-btn wow fadeInUp mt-4" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
         <?php echo esc_html($link_title); ?>
         <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -62,12 +78,11 @@ if ($link):
                         <div class="col-lg-3 col-md-3">
                             <div class="FooterInfo">
                                 <div class="FooterHeading">
-                                    <h3><?php echo get_field('important_links', 'options'); ?></h3>
+                                    <h3><?php echo get_field('middle_column_heading', 'option'); ?></h3>
                                 </div>
                                 <div class="FooterLinks">
                                     
-                                       
-
+                                   
                                     <?php 
                             wp_nav_menu( array(
                                 'theme_location' => 'footer-menu-middle', 
@@ -84,14 +99,16 @@ if ($link):
                         <div class="col-lg-3 col-md-4">
                             <div class="FooterInfo">
                                 <div class="FooterHeading">
-                                    <h3><?php echo get_field('newsletter', 'options'); ?></h3>
+                                    <h3><?php echo get_field('right_column_heading', 'option'); ?></h3>
                                 </div>
                                 <div class="FooterItems">
-                                    <p><?php echo get_field('newslettersubheading', 'options'); ?></p>
+                                    <p><?php echo get_field('newslettersubheading', 'option'); ?></p>
                                 </div>
                                 <div class="Newsletters">
                                     <div class="NewslettersInput">
-                                        <?php echo do_shortcode('[contact-form-7 id="eb1aedc" title="newsletter form"]'); ?>
+                                        <?php
+echo do_shortcode('[mailpoet_form id="1"]');
+?>
 
                                     </div>
                                 </div>
@@ -126,7 +143,7 @@ if ($link):
                     </div>
                 </div>
                 <div class="FooterBottom">
-                    <p><?php echo get_field('copyright__first_', 'options'); ?><b><?php echo get_field('copyright_second_', 'options'); ?></b> <?php echo get_field('reserved_', 'options'); ?></p>
+                    <p><?php echo get_field('copyright__first_', 'option'); ?><b><?php echo get_field('copyright_second_', 'option'); ?></b> <?php echo get_field('reserved_', 'option'); ?></p>
                 </div>
             </div>
         </footer>
@@ -157,6 +174,48 @@ if ($link):
          });
          </script>
 
+ <script>
+  
+  function countWords(text) {
+    return text.trim().split(/\s+/).filter(Boolean).length;
+  }
+
+  
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.read-more-container').forEach(function(container) {
+      const contentEl = container.querySelector('.read-more-content');
+      const toggle = container.querySelector('.read-more-toggle');
+      const fullText = contentEl.textContent || '';
+      const words = countWords(fullText);  
+
+      if (words <= 15) {
+        toggle.style.display = 'none';  
+      }
+
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        const isExpanded = container.classList.toggle('expanded');
+        toggle.textContent = isExpanded ? 'See Less' : 'See More';
+      });
+    });
+  });
+</script>
+
+<script>
+jQuery(document).ready(function($) {
+  $('.ser-tab .tab-links').on('click', function(e) {
+    e.preventDefault();
+
+    $('.ser-tab .tab-links').removeClass('active');
+
+    $(this).addClass('active');
+  });
+});
+</script>
+
+
+
+
 
 
 
@@ -167,25 +226,8 @@ if ($link):
       <?php wp_footer(); ?>
 
 
-
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
 
-      
-
-
-
-     
 
 </html>
-
-<script>
-  new WOW().init();
-</script>
-
-
-
-
-
-
-
